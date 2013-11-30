@@ -3,3 +3,5 @@
         email = 539739+yanhan@users.noreply.github.com
 [core]
         editor = vim
+[color]
+        diff = true
