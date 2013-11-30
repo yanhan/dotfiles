@@ -1,3 +1,9 @@
+######################################################################
+#                                                                    #
+#           elementary OS luna - specific stuff                      #
+#                                                                    #
+######################################################################
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -105,6 +111,12 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+######################################################################
+#                                                                    #
+#     END OF elementary OS luna - specific stuff                     #
+#                                                                    #
+######################################################################
 
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/haskellsandbox/yesod-1.2.3/.cabal-sandbox/bin:$PATH
