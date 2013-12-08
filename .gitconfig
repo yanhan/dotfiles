@@ -5,3 +5,4 @@
         editor = vim
 [color]
         diff = true
+        ui = true
