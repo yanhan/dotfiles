@@ -122,3 +122,4 @@ PATH=$HOME/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/haskellsandbox/yesod-1.2.3/.cabal-sandbox/bin:$PATH
 PATH=$HOME/haskellsandbox/hakyll-4.4.1.2/.cabal-sandbox/bin:$PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
