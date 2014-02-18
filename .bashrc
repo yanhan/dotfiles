@@ -17,4 +17,4 @@ alias date=gdate
 
 # Secret stuff
 
-. secret.sh
+. ~/secret.sh
