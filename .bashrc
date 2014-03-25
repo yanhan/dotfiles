@@ -15,6 +15,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 # For running Linux version of `date` command
 alias date=gdate
 
+# For golang
+export GOPATH=$HOME/go
+
 # Secret stuff
 
 . ~/secret.sh
