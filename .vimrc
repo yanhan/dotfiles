@@ -9,6 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jlanzarotta/bufexplorer'
+" Golang syntax highlighting
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on  " required!
 
