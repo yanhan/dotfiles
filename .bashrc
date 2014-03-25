@@ -6,6 +6,7 @@ PATH=/usr/local/opt/mysql/bin:$PATH
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=$HOME/Library/Haskell/bin:$PATH
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/apache-maven-3.2.1/bin
 
 # For `ls` to have colors when VIM is using Solarized colorscheme
 export CLICOLOR=1
@@ -17,6 +18,8 @@ alias date=gdate
 
 # For golang
 export GOPATH=$HOME/go
+
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Secret stuff
 
