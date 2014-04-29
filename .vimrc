@@ -16,6 +16,9 @@ filetype plugin indent on  " required!
 
 set bs=2
 set ts=2
+" soft tabstop. When deleting a line indented by spaces, deleting the spaces
+" feels like deleting tabs
+set sts=2
 set sw=2
 set number
 " shows row and column number at bottom right corner
