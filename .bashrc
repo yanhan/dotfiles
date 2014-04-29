@@ -27,6 +27,11 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 
+# Given as part of the installation instructions for the `boot2docker` program:
+#   http://docs.docker.io/installation/mac/
+#   To connect the docker client to the Docker daemon, please set:
+export DOCKER_HOST=tcp://localhost:4243
+
 # Secret stuff
 
 . ~/secret.sh
