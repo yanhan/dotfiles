@@ -22,6 +22,11 @@ export GOPATH=$HOME/go
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# Remove the error stated here:
+# http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
 # Secret stuff
 
 . ~/secret.sh
