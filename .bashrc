@@ -35,5 +35,4 @@ export CPPFLAGS=-Qunused-arguments
 export DOCKER_HOST=tcp://localhost:4243
 
 # Secret stuff
-
-. ~/secret.sh
+[ -f $HOME/secret.sh ] && . $HOME/secret.sh
