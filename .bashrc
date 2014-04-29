@@ -21,6 +21,7 @@ alias date=gdate
 # For golang
 export GOPATH=$HOME/go
 
+# Set JAVA_HOME for Mac OS X
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Remove the error stated here:
