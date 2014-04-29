@@ -3,6 +3,7 @@ export PS1="[\u: \w]$ "
 # Setting PATH
 
 PATH=/usr/local/opt/mysql/bin:$PATH
+PATH=/usr/local/Cellar/make/4.0/bin:$PATH
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=$HOME/Library/Haskell/bin:$PATH
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
