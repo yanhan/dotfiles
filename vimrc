@@ -25,3 +25,4 @@ set autoindent
 set number
 " shows row and column number at bottom right corner
 set ruler
+syntax on
