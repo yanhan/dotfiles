@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -48,4 +49,21 @@ let g:clojure_syntax_keywords = {
 let g:clojure_align_multiline_strings = 1
 
 " END vim-clojure-static plugin configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEGIN rainbow_parentheses.vim configuration
+
+au VimEnter *.clj RainbowParenthesesToggle
+au VimEnter *.clj RainbowParenthesesLoadRound
+au VimEnter *.clj RainbowParenthesesLoadSquare
+au VimEnter *.clj RainbowParenthesesLoadBraces
+
+au VimEnter *.cljs RainbowParenthesesToggle
+au VimEnter *.cljs RainbowParenthesesLoadRound
+au VimEnter *.cljs RainbowParenthesesLoadSquare
+au VimEnter *.cljs RainbowParenthesesLoadBraces
+
+" END rainbow_parentheses.vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
