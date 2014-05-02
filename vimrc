@@ -27,3 +27,25 @@ set number
 " shows row and column number at bottom right corner
 set ruler
 syntax on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEGIN vim-clojure-static plugin configuration
+"
+" Refer to
+"
+"     https://github.com/guns/vim-clojure-static
+"
+" for more information on configuration options
+
+" Syntax highlighting options
+"
+" `deftest`, `is` are from Chas Emerick's clojurescript.test
+let g:clojure_syntax_keywords = {
+  \ 'clojureMacro': ["deftest", "is"]
+  \ }
+
+" Align multiline strings to the column after opening quote
+let g:clojure_align_multiline_strings = 1
+
+" END vim-clojure-static plugin configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
