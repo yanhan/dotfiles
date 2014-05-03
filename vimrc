@@ -56,15 +56,10 @@ let g:clojure_align_multiline_strings = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN rainbow_parentheses.vim configuration
 
-au VimEnter *.clj RainbowParenthesesToggle
-au VimEnter *.clj RainbowParenthesesLoadRound
-au VimEnter *.clj RainbowParenthesesLoadSquare
-au VimEnter *.clj RainbowParenthesesLoadBraces
-
-au VimEnter *.cljs RainbowParenthesesToggle
-au VimEnter *.cljs RainbowParenthesesLoadRound
-au VimEnter *.cljs RainbowParenthesesLoadSquare
-au VimEnter *.cljs RainbowParenthesesLoadBraces
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " END rainbow_parentheses.vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
