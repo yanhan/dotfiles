@@ -118,6 +118,8 @@ fi
 #                                                                    #
 ######################################################################
 
+export TERM=screen-256color
+
 PATH=$HOME/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin:$PATH
