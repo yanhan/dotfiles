@@ -33,12 +33,3 @@ manager. To setup Vundle:
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 Now, launch `vim` and run `:PluginInstall`.
-
-### Vim solarized setup for Gnome Terminal
-
-[Solarized](https://github.com/altercation/solarized) is a popular color scheme
-for text editors. This section assumes that you will be setting it up for
-**Gnome Terminal**.
-
-We will be using [sigurda's gnome-terminal-colors-solarized git repository](https://github.com/sigurdga/gnome-terminal-colors-solarized).
-Follow the setup instructions there and you should be fine.

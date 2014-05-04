@@ -11,6 +11,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -88,4 +89,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " END rainbow_parentheses.vim configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEGIN molokai colorscheme configuration
+colorscheme molokai
+let g:rehash256 = 1
+" END molokai colorscheme configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
