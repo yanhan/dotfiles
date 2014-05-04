@@ -44,7 +44,9 @@ syntax on
 "
 " `deftest`, `is` are from Chas Emerick's clojurescript.test
 let g:clojure_syntax_keywords = {
-  \ 'clojureMacro': ["deftest", "is"]
+  \ 'clojureMacro': ["deftest", "is"],
+  \ 'clojureFunc':  ["clj->js", "js->clj", "js-delete", "js-obj", "js/alert", "js/confirm"],
+  \ 'clojureVariable': ["js/console", "js/document", "js/window", "js/jQuery"]
   \ }
 
 " Align multiline strings to the column after opening quote
