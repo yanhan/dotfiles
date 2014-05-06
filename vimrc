@@ -20,6 +20,8 @@ set ts=2
 " feels like deleting tabs
 set sts=2
 set sw=2
+set expandtab
+set autoindent
 set number
 " shows row and column number at bottom right corner
 set ruler
