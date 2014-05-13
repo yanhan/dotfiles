@@ -46,7 +46,7 @@ syntax on
 let g:clojure_syntax_keywords = {
   \ 'clojureMacro': ["deftest", "is"],
   \ 'clojureFunc':  ["clj->js", "js->clj", "js-delete", "js-obj", "js/alert", "js/confirm"],
-  \ 'clojureVariable': ["js/console", "js/document", "js/window", "js/jQuery"]
+  \ 'clojureVariable': ["js/console", "js/document", "js/window", "js/jQuery", "js/JSON"]
   \ }
 
 " Align multiline strings to the column after opening quote
