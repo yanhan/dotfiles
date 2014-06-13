@@ -36,3 +36,6 @@ set modelines=1
 syntax enable
 set background=dark
 colorscheme solarized
+
+" Use Ruby syntax highlighting for *.thor files
+au BufNewFile,BufRead *.thor set filetype=ruby
