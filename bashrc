@@ -34,5 +34,10 @@ export CPPFLAGS=-Qunused-arguments
 #   To connect the docker client to the Docker daemon, please set:
 export DOCKER_HOST=tcp://localhost:4243
 
+# For sphinx-quickstart
+# http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Secret stuff
 [ -f $HOME/secret.sh ] && . $HOME/secret.sh
