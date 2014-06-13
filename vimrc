@@ -28,6 +28,8 @@ set autoindent
 set number
 " shows row and column number at bottom right corner
 set ruler
+set modeline
+set modelines=1
 
 " For solarized plugin (color scheme)
 " https://github.com/altercation/vim-colors-solarized
