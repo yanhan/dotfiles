@@ -32,7 +32,7 @@ export CPPFLAGS=-Qunused-arguments
 # Given as part of the installation instructions for the `boot2docker` program:
 #   http://docs.docker.io/installation/mac/
 #   To connect the docker client to the Docker daemon, please set:
-export DOCKER_HOST=tcp://localhost:4243
+export DOCKER_HOST=tcp://:2375
 
 # For sphinx-quickstart
 # http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
