@@ -1,0 +1,19 @@
+# Vim, Emacs temporary files
+############################
+*~
+*.swo
+*.swp
+
+# Build products
+################
+*.o
+
+# Packages, Compressed files
+############################
+*.bundle
+*.tar.gz
+*.zip
+
+# shelly.hs
+###########
+.shelly
