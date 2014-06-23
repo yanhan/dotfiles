@@ -3,5 +3,6 @@
   email = pangyanhan@gmail.com
 [core]
   editor = vim
+  excludesfile = ~/dotfiles/gitignore_global
 [color]
   ui = true
