@@ -1,6 +1,6 @@
 [user]
   name = Pang Yan Han
-  email = pangyanhan@gmail.com
+  email = yanhan@viki.com
 [core]
   editor = vim
   excludesfile = ~/dotfiles/gitignore_global
