@@ -1,0 +1,28 @@
+# Text editor temporary files
+#############################
+*~
+*.swo
+*.swp
+
+# Build products
+################
+*.o
+*.class
+*.jar
+
+# Build directories
+###################
+.sass-cache
+
+# Library directories
+#####################
+venv
+node_modules
+
+# ClojureScript
+###############
+.repl
+
+# shelly.hs
+###########
+.shelly
