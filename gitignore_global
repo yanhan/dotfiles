@@ -17,3 +17,7 @@
 # shelly.hs
 ###########
 .shelly
+
+# Vagrant
+.vagrant
+vagrant_data
