@@ -23,6 +23,12 @@ Your `$HOME/.vimrc` should contain this line:
 
     :source $HOME/dotfiles/vimrc
 
+### zshrc
+
+This line should be present in `~/.zshrc`:
+
+    . $HOME/dotfiles/zshrc
+
 Similarly for the other dotfiles.
 
 ### Vim setup
