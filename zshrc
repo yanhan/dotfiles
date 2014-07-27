@@ -79,6 +79,11 @@ bindkey '^N' down-history
 # Similar to Ctrl-r in Bash. Search through command history
 bindkey '^r' history-incremental-search-backward
 
+# In Insert Mode, Ctrl-A moves to start of line; Ctrl-e moves to end of line.
+# These 2 are emacs key bindings but they are really convenient.
+bindkey '^a' vi-beginning-of-line
+bindkey '^e' vi-end-of-line
+
 # Use right prompt to display `[NORMAL]` in yellow if we're in
 # normal mode
 if [[ "$MODE_INDICATOR" == "" ]]; then
