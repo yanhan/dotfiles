@@ -71,6 +71,9 @@ bindkey -M vicmd 'v' edit-command-line
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
+# Delete a word using Ctrl-w
+bindkey '^w' backward-kill-word
+
 # Browse through history using Ctrl-P and Ctrl-N, same functionality as
 # up and down cursor keys in Bash
 bindkey '^P' up-history
