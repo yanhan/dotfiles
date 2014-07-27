@@ -45,7 +45,7 @@ syntax on
 " `deftest`, `is` are from Chas Emerick's clojurescript.test
 let g:clojure_syntax_keywords = {
   \ 'clojureMacro': ["deftest", "is"],
-  \ 'clojureFunc':  ["clj->js", "js->clj", "js-delete", "js-obj", "js/alert", "js/clearInterval", "js/confirm", "js/parseInt", "js/setInterval", "js/setTimeout"],
+  \ 'clojureFunc':  ["clj->js", "js->clj", "js-delete", "js-obj", "js/alert", "js/clearInterval", "js/confirm", "js/encodeURI", "js/parseInt", "js/setInterval", "js/setTimeout"],
   \ 'clojureVariable': ["js/console", "js/document", "js/window", "js/jQuery", "js/JSON"]
   \ }
 
