@@ -14,12 +14,18 @@ Clone this repository to `$HOME/dotfiles`
     git clone https://github.com/yanhan/dotfiles.git
 
 For the actual dotfiles in your `$HOME` folder, import / source the dotfiles
-in this git repository. For example, your `$HOME/.bashrc` should contain this
-line:
+in this git repository. Instructions specific to individual dotfiles are
+available below.
+
+### ~/.bashrc
+
+This line should be present in `~/.bashrc`:
 
     [ -f $HOME/dotfiles/bashrc ] && . $HOME/dotfiles/bashrc
 
-Your `$HOME/.vimrc` should contain this line:
+### ~/.vimrc
+
+This line should be present in `~/.vimrc`:
 
     :source $HOME/dotfiles/vimrc
 
