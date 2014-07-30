@@ -86,6 +86,9 @@ bindkey '^r' history-incremental-search-backward
 # These 2 are emacs key bindings but they are really convenient.
 bindkey '^a' vi-beginning-of-line
 bindkey '^e' vi-end-of-line
+# Insert mode move forward and backward 1 character
+bindkey '^f' vi-forward-char
+bindkey '^b' vi-backward-char
 
 # Use right prompt to display `[NORMAL]` in yellow if we're in
 # normal mode
