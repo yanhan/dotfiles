@@ -59,6 +59,17 @@ zle -N edit-command-line
 # Use vim mode for command editing
 bindkey -v
 
+# This section is adapted from:
+#
+#     http://www.bewatermyfriend.org/media/vi-mode.zsh
+#
+# In command mode, Ctrl-d changes to insert mode
+bindkey -M viins '^d' vi-cmd-mode
+# In insert mode, Ctrl-d changes to command mode
+bindkey -M vicmd '^d' vi-insert
+# Remove binding for Escape = vi-cmd-mode
+bindkey -r '^['
+
 # Enable usage of `v` key in normal mode to edit the command line
 # (standard behaviour) using the text editor specified by the EDITOR
 # environment variable
