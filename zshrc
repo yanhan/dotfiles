@@ -20,9 +20,38 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+path+=('/usr/local/opt/mysql/bin')
+path+=('/usr/local/Cellar/make/4.0/bin')
+path+=('$HOME/bin')
+path+=('$HOME/Library/Haskell/bin')
+path+=('$HOME/.rvm/bin')
+path+=('$HOME/apache-maven-3.2.1/bin')
+path+=('$HOME/storm-0.9.0.1/bin')
+path+=('$HOME/Library/Python/2.7/bin')
+export PATH
+
+# For golang
+export GOPATH=$HOME/go
+
+# Set JAVA_HOME for Mac OS X
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Remove the error stated here:
+# http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
+# For sphinx-quickstart
+# http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Secret stuff
+[ -f $HOME/secret.sh ] && . $HOME/secret.sh
+
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
+[ -n "$TMUX" ] && export TERM=screen-256color-bce
 
 # vi mode configuration.
 # This is based on code from:
@@ -94,6 +123,9 @@ function vi_mode_prompt_info() {
 if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
+
+# Aliases
+alias date=gdate
 
 
 
