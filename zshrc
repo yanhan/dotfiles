@@ -84,6 +84,9 @@ bindkey '^h' backward-delete-char
 
 # Delete a word using Ctrl-w
 bindkey '^w' backward-kill-word
+# Ctrl-u; similar functionality as in vim.
+# Deletes from beginning of line to cursor.
+bindkey '^u' backward-kill-line
 
 # Browse through history using Ctrl-P and Ctrl-N, same functionality as
 # up and down cursor keys in Bash
