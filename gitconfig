@@ -3,6 +3,7 @@
         email = pangyanhan@gmail.com
 [core]
         editor = vim
+        pager = less -F -X
 [color]
         diff = true
         ui = true
