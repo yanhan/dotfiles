@@ -3,6 +3,7 @@
         email = 539739+yanhan@users.noreply.github.com
 [core]
         editor = vim
+        pager = less -F -X
 [color]
         diff = true
         ui = true
