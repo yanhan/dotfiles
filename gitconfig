@@ -6,4 +6,5 @@
   excludesfile = ~/dotfiles/gitignore_global
   pager = less -F -X
 [color]
+  diff = true
   ui = true
