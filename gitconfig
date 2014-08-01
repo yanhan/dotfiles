@@ -1,9 +1,9 @@
 [user]
-        name = Yan Han Pang
-        email = 539739+yanhan@users.noreply.github.com
+  name = Yan Han Pang
+  email = 539739+yanhan@users.noreply.github.com
 [core]
-        editor = vim
-        pager = less -F -X
+  editor = vim
+  pager = less -F -X
 [color]
-        diff = true
-        ui = true
+  diff = true
+  ui = true
