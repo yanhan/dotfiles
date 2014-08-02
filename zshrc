@@ -18,6 +18,13 @@ source $ZSH/oh-my-zsh.sh
 
 ### User configuration from here
 
+# Prints '^C' when Ctrl-c is pressed.
+# From https://vinipsmaker.wordpress.com/2014/02/23/my-zsh-config/
+TRAPINT() {
+  print -n -u2 '^C'
+  return $((128+$1))
+}
+
 path+=('/home/yh/bin')
 path+=('/home/yh/.cabal/bin')
 path+=('/home/yh/haskellsandbox/hakyll-4.4.1.2/.cabal-sandbox/bin')
