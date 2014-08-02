@@ -116,6 +116,9 @@ bindkey '^b' vi-backward-char
 # These DO NOT work inside tmux
 bindkey '^[[1;3C' vi-forward-word
 bindkey '^[[1;3D' vi-backward-word
+# Alt-rightarrow and Alt-leftarrow within tmux
+bindkey '^[^[[C' vi-forward-word
+bindkey '^[^[[D' vi-backward-word
 
 # Use right prompt to display `[NORMAL]` in yellow if we're in
 # normal mode
