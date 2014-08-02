@@ -25,10 +25,10 @@ TRAPINT() {
   return $((128+$1))
 }
 
-path+=('/home/yh/bin')
-path+=('/home/yh/.cabal/bin')
-path+=('/home/yh/haskellsandbox/hakyll-4.4.1.2/.cabal-sandbox/bin')
-path+=('/home/yh/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin')
+path+=("$HOME/bin")
+path+=("$HOME/.cabal/bin")
+path+=("$HOME/haskellsandbox/hakyll-4.4.1.2/.cabal-sandbox/bin")
+path+=("$HOME/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin")
 export PATH
 
 export EDITOR='vim'
