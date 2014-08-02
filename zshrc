@@ -113,6 +113,7 @@ bindkey '^e' vi-end-of-line
 bindkey '^f' vi-forward-char
 bindkey '^b' vi-backward-char
 # Alt-rightarrow = forward word; Alt-leftarrow = backward word
+# These DO NOT work inside tmux
 bindkey '^[[1;3C' vi-forward-word
 bindkey '^[[1;3D' vi-backward-word
 
