@@ -20,6 +20,13 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+# Prints '^C' when Ctrl-c is pressed.
+# From https://vinipsmaker.wordpress.com/2014/02/23/my-zsh-config/
+TRAPINT() {
+  print -n -u2 '^C'
+  return $((128+$1))
+}
+
 path+=('/usr/local/opt/mysql/bin')
 path+=('/usr/local/Cellar/make/4.0/bin')
 path+=('$HOME/bin')
