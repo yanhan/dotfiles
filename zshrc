@@ -27,12 +27,12 @@ TRAPINT() {
   return $((128+$1))
 }
 
-path+=('$HOME/bin')
-path+=('$HOME/Library/Haskell/bin')
-path+=('$HOME/.rvm/bin')
-path+=('$HOME/apache-maven-3.2.1/bin')
-path+=('$HOME/storm-0.9.0.1/bin')
-path+=('$HOME/Library/Python/2.7/bin')
+path+=("$HOME/bin")
+path+=("$HOME/Library/Haskell/bin")
+path+=("$HOME/.rvm/bin")
+path+=("$HOME/apache-maven-3.2.1/bin")
+path+=("$HOME/storm-0.9.0.1/bin")
+path+=("$HOME/Library/Python/2.7/bin")
 export PATH
 
 # For golang
