@@ -35,6 +35,9 @@ path+=("$HOME/storm-0.9.0.1/bin")
 path+=("$HOME/Library/Python/2.7/bin")
 export PATH
 
+# Manpages for user installed software, such as git
+export MANPATH=/usr/local/man:$MANPATH
+
 # For golang
 export GOPATH=$HOME/go
 
