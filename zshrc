@@ -27,8 +27,6 @@ TRAPINT() {
   return $((128+$1))
 }
 
-path+=('/usr/local/opt/mysql/bin')
-path+=('/usr/local/Cellar/make/4.0/bin')
 path+=('$HOME/bin')
 path+=('$HOME/Library/Haskell/bin')
 path+=('$HOME/.rvm/bin')
