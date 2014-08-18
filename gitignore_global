@@ -21,3 +21,7 @@
 # Vagrant
 .vagrant
 vagrant_data
+
+# sass
+######
+.sass-cache
