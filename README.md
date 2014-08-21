@@ -13,29 +13,17 @@ Clone this repository to `$HOME/dotfiles`
 
     git clone https://github.com/yanhan/dotfiles.git
 
-For the actual dotfiles in your `$HOME` folder, import / source the dotfiles
-in this git repository. Instructions specific to individual dotfiles are
-available below.
+And run the `setup_home_folder_dotfiles.py` script with one or more of the
+following args:
 
-### ~/.bashrc
+- bashrc
+- gitconfig
+- vimrc
+- zshrc
 
-This line should be present in `~/.bashrc`:
+eg. to setup the `gitconfig`, `vimrc` and `zshrc`, run:
 
-    [ -f $HOME/dotfiles/bashrc ] && . $HOME/dotfiles/bashrc
-
-### ~/.vimrc
-
-This line should be present in `~/.vimrc`:
-
-    :source $HOME/dotfiles/vimrc
-
-### zshrc
-
-This line should be present in `~/.zshrc`:
-
-    . $HOME/dotfiles/zshrc
-
-Similarly for the other dotfiles.
+    python setup_home_folder_dotfiles.py gitconfig vimrc zshrc
 
 ### Vim setup
 
