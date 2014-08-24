@@ -25,11 +25,17 @@ eg. to setup the `gitconfig`, `vimrc` and `zshrc`, run:
 
     python setup_home_folder_dotfiles.py gitconfig vimrc zshrc
 
-### Vim setup
+## Vim setup
 
 We are using [Vundle](https://github.com/gmarik/Vundle.vim) as our Vim plugin
 manager. To setup Vundle:
 
+    # Clone Vundle repository
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    cd ~/.vim/bundle/Vundle.vim
+    # Checkout v0.10.2:
+    git checkout v0.10.2
+    # Install plugins
+    vim +PluginInstall +qall
 
 Now, launch `vim` and run `:PluginInstall`.
