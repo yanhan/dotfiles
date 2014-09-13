@@ -6,6 +6,12 @@
 
 # Build products
 ################
+# OCaml
+*.cmi
+*.cmx
+# ocamlyacc
+*.mli
+# Familiar ones
 *.o
 *.class
 *.jar
