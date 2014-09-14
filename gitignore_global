@@ -13,21 +13,24 @@
 *.mli
 # Familiar ones
 *.o
-
-# Packages, Compressed files
-############################
+*.class
+*.jar
+# git bundle
 *.bundle
-*.tar.gz
-*.zip
+
+# Build directories
+###################
+.sass-cache
+
+# Library directories
+#####################
+venv
+node_modules
+
+# ClojureScript
+###############
+.repl
 
 # shelly.hs
 ###########
 .shelly
-
-# Vagrant
-.vagrant
-vagrant_data
-
-# sass
-######
-.sass-cache
