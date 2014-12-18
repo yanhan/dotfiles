@@ -27,13 +27,19 @@ TRAPINT() {
   return $((128+$1))
 }
 
+# Maven 3.2.3
+export M2_HOME=$HOME/apache-maven-3.2.3
+export M2=$M2_HOME/bin
+export MAVEN_OPTS="-Xms256m -Xmx512m"
+
 path+=("$HOME/bin")
 path+=("$HOME/Library/Haskell/bin")
 path+=("$HOME/.rvm/bin")
-path+=("$HOME/apache-maven-3.2.1/bin")
+path+=("$HOME/apache-maven-3.2.3/bin")
 path+=("$HOME/storm-0.9.0.1/bin")
 path+=("$HOME/Library/Python/2.7/bin")
 path+=("$HOME/.rvm/bin")
+path+=("$M2")
 export PATH
 
 # Manpages for user installed software, such as git
