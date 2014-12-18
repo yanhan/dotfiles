@@ -40,6 +40,7 @@ path+=("$HOME/storm-0.9.0.1/bin")
 path+=("$HOME/Library/Python/2.7/bin")
 path+=("$HOME/.rvm/bin")
 path+=("$M2")
+path+=("$HOME/apache-storm-0.9.2-incubating/bin")
 export PATH
 
 # Manpages for user installed software, such as git
