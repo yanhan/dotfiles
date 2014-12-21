@@ -41,6 +41,7 @@ path+=("$HOME/Library/Python/2.7/bin")
 path+=("$HOME/.rvm/bin")
 path+=("$M2")
 path+=("$HOME/apache-storm-0.9.2-incubating/bin")
+path+=("$HOME/haskellsandbox/hakyll-4.6.2.0/.cabal-sandbox/bin")
 export PATH
 
 # Manpages for user installed software, such as git
