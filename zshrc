@@ -169,6 +169,7 @@ fi
 
 # Aliases
 alias date=gdate
+alias rstudio='open -a Rstudio'
 
 
 
