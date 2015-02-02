@@ -9,7 +9,7 @@ import re
 import shutil
 import sys
 
-VALID_DOTFILES = set(["bashrc", "gitconfig", "vimrc", "zshrc",])
+VALID_DOTFILES = set(["bashrc", "gitconfig", "tmux.conf", "vimrc", "zshrc",])
 TEMPLATE_FOLDER = "templates"
 HOME_FOLDER = os.environ["HOME"]
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")

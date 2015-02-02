@@ -18,12 +18,13 @@ following args:
 
 - bashrc
 - gitconfig
+- tmux.conf
 - vimrc
 - zshrc
 
-eg. to setup the `gitconfig`, `vimrc` and `zshrc`, run:
+eg. to setup the `gitconfig`, `tmux.conf`, `vimrc` and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py gitconfig vimrc zshrc
+    python setup_home_folder_dotfiles.py gitconfig tmux.conf vimrc zshrc
 
 ## Vim setup
 
