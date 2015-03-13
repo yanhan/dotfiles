@@ -20,6 +20,8 @@
 *.jar
 # git bundle
 *.bundle
+# vagrant
+*.box
 
 # Build directories
 ###################
