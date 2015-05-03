@@ -40,3 +40,8 @@ node_modules
 # shelly.hs
 ###########
 .shelly
+
+# LaTeX
+#######
+*.aux
+*.log
