@@ -27,6 +27,8 @@ TRAPINT() {
   return $((128+$1))
 }
 
+export ARCHFLAGS="-arch x86_64"
+
 # Maven 3.2.3
 export M2_HOME=$HOME/apache-maven-3.2.3
 export M2=$M2_HOME/bin
@@ -62,6 +64,13 @@ export CPPFLAGS=-Qunused-arguments
 # http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# For pip and virtualenv
+# http://hackercodex.com/guide/python-development-environment-on-mac-osx/
+# pip should only run if there's a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # Secret stuff
 [ -f $HOME/secret.sh ] && . $HOME/secret.sh
