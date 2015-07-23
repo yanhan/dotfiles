@@ -15,7 +15,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-
 ### User configuration from here
 
 export EDITOR='vim'
@@ -34,6 +33,13 @@ export M2_HOME=$HOME/apache-maven-3.2.3
 export M2=$M2_HOME/bin
 export MAVEN_OPTS="-Xms256m -Xmx512m"
 
+# Golang specific additions
+export GOPATH=$HOME/go
+# System specific Golang binaries
+path+=("/usr/local/go/bin")
+# User specific Golang binaries
+path+=("$GOPATH/bin")
+
 path+=("$HOME/bin")
 path+=("$HOME/Library/Haskell/bin")
 path+=("$HOME/.rvm/bin")
@@ -44,13 +50,12 @@ path+=("$HOME/.rvm/bin")
 path+=("$M2")
 path+=("$HOME/apache-storm-0.9.2-incubating/bin")
 path+=("$HOME/haskellsandbox/hakyll-4.6.2.0/.cabal-sandbox/bin")
+path+=("$HOME/.rbenv/shims")
+path+=("$HOME/arcanist/bin")
 export PATH
 
 # Manpages for user installed software, such as git
 export MANPATH=/usr/local/man:$MANPATH
-
-# For golang
-export GOPATH=$HOME/go
 
 # Set JAVA_HOME for Mac OS X
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -181,7 +186,24 @@ alias date=gdate
 alias rstudio='open -a Rstudio'
 
 
+# rbenv stuff
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
+rbenv rehash 2>/dev/null
+rbenv() {
+  typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
 
+  case "$command" in
+  rehash|shell)
+    eval `rbenv "sh-$command" "$@"`;;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
 
 
 ### Original code. Some were originally commented out, some not.
