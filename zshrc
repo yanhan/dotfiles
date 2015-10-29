@@ -180,6 +180,9 @@ if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
 
+# For environment variables exported by the `default` docker-machine
+eval "$(docker-machine env default)"
+
 # Aliases
 alias date=gdate
 alias rstudio='open -a Rstudio'
