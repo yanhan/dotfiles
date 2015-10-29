@@ -50,7 +50,6 @@ path+=("$HOME/.rvm/bin")
 path+=("$M2")
 path+=("$HOME/apache-storm-0.9.2-incubating/bin")
 path+=("$HOME/haskellsandbox/hakyll-4.6.2.0/.cabal-sandbox/bin")
-path+=("$HOME/.rbenv/shims")
 path+=("$HOME/arcanist/bin")
 export PATH
 
@@ -184,26 +183,6 @@ fi
 # Aliases
 alias date=gdate
 alias rstudio='open -a Rstudio'
-
-
-# rbenv stuff
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
-rbenv rehash 2>/dev/null
-rbenv() {
-  typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval `rbenv "sh-$command" "$@"`;;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
 
 
 ### Original code. Some were originally commented out, some not.
