@@ -25,10 +25,14 @@ TRAPINT() {
   return $((128+$1))
 }
 
+# For pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+
 path+=("$HOME/bin")
 path+=("$HOME/.cabal/bin")
 path+=("$HOME/haskellsandbox/hakyll-4.7.0.0/.cabal-sandbox/bin")
 path+=("$HOME/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin")
+path=("${PYENV_ROOT}/bin"  ${path})
 export PATH
 
 export EDITOR='vim'
@@ -134,7 +138,11 @@ if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
 
+# for pyenv
+eval "$(pyenv init -)"
 
+# for pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
 
 
 
