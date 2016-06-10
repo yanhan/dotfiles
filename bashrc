@@ -120,6 +120,9 @@ fi
 
 export TERM=screen-256color
 
+# for pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+
 PATH=$HOME/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin:$PATH
@@ -127,3 +130,11 @@ PATH=$HOME/haskellsandbox/hakyll-4.4.1.2/.cabal-sandbox/bin:$PATH
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/apache-maven-3.2.1/bin
 PATH=$PATH:$HOME/storm-0.9.0.1/bin
+# for pyenv
+PATH="${PYENV_ROOT}/bin:${PATH}"
+
+# for pyenv
+eval "$(pyenv init -)"
+
+# for pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
