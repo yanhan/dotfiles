@@ -32,7 +32,8 @@ path+=("$HOME/bin")
 path+=("$HOME/.cabal/bin")
 path+=("$HOME/haskellsandbox/hakyll-4.7.0.0/.cabal-sandbox/bin")
 path+=("$HOME/haskellsandbox/yesod-bin-1.2.5.1/.cabal-sandbox/bin")
-path=("${PYENV_ROOT}/bin"  ${path})
+# ${HOME}/.local/bin is for Haskell Stack
+path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 export PATH
 
 export EDITOR='vim'
