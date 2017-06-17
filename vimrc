@@ -30,6 +30,8 @@ set number
 " shows row and column number at bottom right corner
 set ruler
 syntax on
+" for modelines like `# vim: ts=2 sw=2` for say python files
+set modeline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN vim-clojure-static plugin configuration
