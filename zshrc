@@ -145,6 +145,20 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 
+### For zsh-git-prompt
+source "${HOME}/zsh-git-prompt/zshrc.sh"
+
+# The definition of the `PROMPT` variable is copied from
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
+# so that we can modify the $(git_prompt_info) to $(git_super_status) to make use of the zsh-git-prompt
+# program.
+# `GIT_PROMPT_EXECUTABLE` is set to `haskell` to make use of the haskell version of zsh-git-prompt,
+# which we built by following the instructions in the README at https://github.com/olivierverdier/zsh-git-prompt
+GIT_PROMPT_EXECUTABLE='haskell'
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_super_status)'
+### END of zsh-git-prompt
+
+
 
 ### Original code. Some were originally commented out, some not.
 
