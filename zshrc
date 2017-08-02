@@ -42,6 +42,7 @@ path+=("$HOME/.rvm/bin")
 path+=("$M2")
 path+=("$HOME/apache-storm-0.9.2-incubating/bin")
 path+=("$HOME/haskellsandbox/hakyll-4.6.2.0/.cabal-sandbox/bin")
+path=("${HOME}/.local/bin"  ${path})
 export PATH
 
 # Manpages for user installed software, such as git
@@ -166,6 +167,10 @@ function vi_mode_prompt_info() {
 if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
+
+### pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Aliases
 alias date=gdate
