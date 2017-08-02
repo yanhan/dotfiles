@@ -37,5 +37,10 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" For copying and pasting using pbcopy in tmux.
+" We didn't actually need this for using pbcopy in tmux but we'll just add it
+" Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+set clipboard=unnamed
+
 " Use Ruby syntax highlighting for *.thor files
 au BufNewFile,BufRead *.thor set filetype=ruby
