@@ -40,3 +40,7 @@ manager. To setup Vundle:
     vim +PluginInstall +qall
 
 Now, launch `vim` and run `:PluginInstall`.
+
+## LICENSE
+
+MIT
