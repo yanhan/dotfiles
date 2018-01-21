@@ -1,3 +1,7 @@
+# Mac OS X specific
+###################
+.DS_Store
+
 # Vim, Emacs temporary files
 ############################
 *~

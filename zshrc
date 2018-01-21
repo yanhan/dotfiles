@@ -30,6 +30,7 @@ TRAPINT() {
 path+=("$HOME/bin")
 path+=("$HOME/.rvm/bin")
 path=("${HOME}/.local/bin"  ${path})
+path+=("${HOME}/library/Python/2.7/bin")
 export PATH
 
 # Manpages for user installed software, such as git
@@ -161,6 +162,38 @@ alias date=gdate
 alias rstudio='open -a Rstudio'
 
 
+### For zsh-git-prompt
+source "${HOME}/zsh-git-prompt/zshrc.sh"
+
+# This uses the `JOBSCOUNT` global variable to show the number of running and
+# suspended jobs in the current shell.
+# Adapted from https://unix.stackexchange.com/a/68635
+# If we see [J:3r/5s] it means that there are 3 running jobs in the background
+# and 5 suspended jobs in the background
+function precmd_job_status() {
+  JOBSCOUNT=${(M)#${jobstates%%:*}:#running}r/${(M)#${jobstates%%:*}:#suspended}s
+  if [[ "${JOBSCOUNT}" == "0r/0s" ]]; then
+    JOBSCOUNT=""
+  else
+    JOBSCOUNT=" [J:${JOBSCOUNT}]"
+  fi
+}
+# Trick we learnt from zsh-git-prompt to execute the precmd_job_status function
+# before every new interactive command issued to zsh.
+add-zsh-hook precmd precmd_job_status
+
+# The definition of the `PROMPT` variable is copied from
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
+# so that we can modify the $(git_prompt_info) to $(git_super_status) to make use of the zsh-git-prompt
+# program.
+# `GIT_PROMPT_EXECUTABLE` is set to `haskell` to make use of the haskell version of zsh-git-prompt,
+# which we built by following the instructions in the README at https://github.com/olivierverdier/zsh-git-prompt
+#
+# The `JOBSCOUNT` variable is set by the `precmd_job_status` function defined
+# above to show us the number of background jobs.
+GIT_PROMPT_EXECUTABLE='haskell'
+PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+### END of zsh-git-prompt
 
 
 
