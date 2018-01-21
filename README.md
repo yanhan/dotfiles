@@ -18,12 +18,24 @@ following args:
 
 - bashrc
 - gitconfig
+- tmux.conf
 - vimrc
 - zshrc
 
-eg. to setup the `gitconfig`, `vimrc` and `zshrc`, run:
+eg. to setup the `gitconfig`, `tmux.conf`, `vimrc` and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py gitconfig vimrc zshrc
+    python setup_home_folder_dotfiles.py gitconfig tmux.conf vimrc zshrc
+
+
+## haskell-vim-now setup
+
+These files:
+
+- [plugins.vim](plugins.vim)
+- [vimrc.local.pre](vimrc.local.pre)
+
+should be copied to `~/.config/haskell-vim-now` in a setup that uses [haskell-vim-now](https://github.com/begriffs/haskell-vim-now)
+
 
 ## Vim setup
 
