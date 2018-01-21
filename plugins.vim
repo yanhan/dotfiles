@@ -8,3 +8,4 @@ Plug 'kana/vim-textobj-entire'
 Plug 'vim-scripts/closetag.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter', { 'tag': '2.5.1' }
+Plug 'tpope/vim-surround'
