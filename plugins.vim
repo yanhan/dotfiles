@@ -9,3 +9,4 @@ Plug 'vim-scripts/closetag.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter', { 'tag': '2.5.1' }
 Plug 'tpope/vim-surround'
+Plug 'johngrib/vim-game-code-break', { 'tag': '1.3.0' }
