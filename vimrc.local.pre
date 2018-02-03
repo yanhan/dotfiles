@@ -7,6 +7,9 @@ nnoremap <leader>l :ls<CR>:b<space>
 " Toggle NERDTree open/close
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
+" Convert .tex files to .pdf on save
+autocmd BufWritePost *.tex !pdflatex <afile>
+
 " Syntastic minimal recommended config
 " From https://github.com/vim-syntastic/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
