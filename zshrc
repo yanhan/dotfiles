@@ -145,7 +145,7 @@ eval "$(pyenv virtualenv-init -)"
 
 
 ### For zsh-git-prompt
-source "${HOME}/zsh-git-prompt/zshrc.sh"
+source "${HOME}/code/zsh-git-prompt/zshrc.sh"
 
 # This uses the `JOBSCOUNT` global variable to show the number of running and
 # suspended jobs in the current shell.
