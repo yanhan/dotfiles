@@ -6,6 +6,8 @@ nnoremap <leader>o :set paste!<CR>
 nnoremap <leader>l :ls<CR>:b<space>
 " Toggle NERDTree open/close
 nnoremap <leader>nt :NERDTreeToggle<CR>
+" Use F3 to copy from the default register
+nnoremap <F3> :call system('xclip -sel clip', @")<CR>
 
 " Convert .tex files to .pdf on save
 autocmd BufWritePost *.tex !pdflatex <afile>
