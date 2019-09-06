@@ -33,6 +33,10 @@ path+=("$HOME/bin"  "${HOME}/google-cloud-sdk/bin")
 path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 export PATH
 
+# For nvm
+export NVM_DIR="${HOME}"/.nvm
+[ -s "${NVM_DIR}"/nvm.sh ] && source "${NVM_DIR}"/nvm.sh
+
 export EDITOR='vim'
 
 # Ensure colors in vim work properly when using tmux and not using tmux
