@@ -29,7 +29,6 @@ TRAPINT() {
 export PYENV_ROOT="${HOME}/.pyenv"
 
 path+=("$HOME/bin")
-path+=("$HOME/haskellsandbox/hakyll-4.7.0.0/.cabal-sandbox/bin")
 # ${HOME}/.local/bin is for Haskell Stack
 path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 export PATH
