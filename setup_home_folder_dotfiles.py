@@ -16,7 +16,7 @@ BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
 def _get_sha256sum_of_file(file_name):
   if os.path.exists(file_name):
-    with open(file_name, "r") as f:
+    with open(file_name, "rb") as f:
       h = hashlib.sha256()
       h.update(f.read())
       return h.hexdigest()
