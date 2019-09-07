@@ -28,7 +28,7 @@ TRAPINT() {
 # For pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
 
-path+=(/opt/texbin  "$HOME/bin"  "${HOME}/google-cloud-sdk/bin")
+path+=(/opt/texbin  "$HOME/bin"  "${HOME}/google-cloud-sdk/bin"  "/usr/local/go/bin")
 # ${HOME}/.local/bin is for Haskell Stack
 path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 export PATH
