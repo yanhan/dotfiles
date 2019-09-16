@@ -193,6 +193,7 @@ alias gl='git log'
 alias gmo='git merge --ff-only origin/master'
 alias gp='git push'
 alias gpom='git push origin master'
+alias grhh='git reset --hard HEAD'
 alias gs='git status'
 alias paa='pyenv activate awscli'
 
