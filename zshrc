@@ -178,6 +178,24 @@ add-zsh-hook precmd precmd_job_status
 # above to show us the number of background jobs.
 GIT_PROMPT_EXECUTABLE='haskell'
 PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+
+# Aliases
+alias k=kubectl
+alias g=git
+alias ga='git add'
+alias gb='git branch'
+alias gcam='git commit --amend'
+alias gcas='git commit -as'
+alias gco='git checkout'
+alias gd='git diff'
+alias gfo='git fetch origin'
+alias gl='git log'
+alias gmo='git merge --ff-only origin/master'
+alias gp='git push'
+alias gpom='git push origin master'
+alias gs='git status'
+alias paa='pyenv activate awscli'
+
 ### END of zsh-git-prompt
 
 
