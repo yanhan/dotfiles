@@ -1,17 +1,17 @@
 set nocompatible   " be iMproved
 filetype off       " required!
 
-" Set the runtime to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" For vim-plug: this specifies a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'tomasr/molokai'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tomasr/molokai'
+Plug 'scrooloose/nerdcommenter'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 
-" All of your Plugins must be added before the following line
-call vundle#end() " required
+" Initialize plugin system
+call plug#end()
 
 filetype plugin indent on  " required!
 
