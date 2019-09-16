@@ -196,6 +196,10 @@ alias gpom='git push origin master'
 alias gs='git status'
 alias paa='pyenv activate awscli'
 
+if [ -f "${HOME}"/secrets.sh ]; then
+  . "${HOME}"/secrets.sh
+fi
+
 ### END of zsh-git-prompt
 
 
