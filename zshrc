@@ -181,6 +181,15 @@ PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_statu
 
 # Aliases
 alias k=kubectl
+alias ka='k apply'
+alias kc='k config'
+alias kcc='kc current-context'
+alias kg='k get'
+alias kl='k logs'
+alias knd='k config set-context $(kcc) --namespace default'
+alias knks='k config set-context $(kcc) --namespace kube-system'
+alias kpf='k port-forward'
+alias kx='k exec'
 alias g=git
 alias ga='git add'
 alias gb='git branch'
