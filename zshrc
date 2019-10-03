@@ -180,6 +180,7 @@ GIT_PROMPT_EXECUTABLE='haskell'
 PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
 
 # Aliases
+alias c=curl
 alias g=git
 alias ga='g add'
 alias gb='g branch'
@@ -209,6 +210,7 @@ alias knks='k config set-context $(kcc) --namespace kube-system'
 alias kpf='k port-forward'
 alias kx='k exec'
 alias paa='pyenv activate awscli'
+alias s=ssh
 alias tf=terraform
 alias v=vim
 alias vr='v -R'
