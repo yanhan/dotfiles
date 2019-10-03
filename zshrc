@@ -209,6 +209,7 @@ alias grbi='g rebase -i'
 alias grhh='g reset --hard HEAD'
 alias gs='g status'
 alias paa='pyenv activate awscli'
+alias tf=terraform
 alias v=vim
 alias vr='v -R'
 
