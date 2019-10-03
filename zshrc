@@ -209,6 +209,8 @@ alias grbi='g rebase -i'
 alias grhh='g reset --hard HEAD'
 alias gs='g status'
 alias paa='pyenv activate awscli'
+alias v=vim
+alias vr='v -R'
 
 if [ -f "${HOME}"/secrets.sh ]; then
   . "${HOME}"/secrets.sh
