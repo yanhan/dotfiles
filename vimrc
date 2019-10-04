@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 
