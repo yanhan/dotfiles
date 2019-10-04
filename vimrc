@@ -31,6 +31,8 @@ syntax on
 " for modelines like `# vim: ts=2 sw=2` for say python files
 set modeline
 
+set hidden
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN molokai colorscheme configuration
 colorscheme molokai
