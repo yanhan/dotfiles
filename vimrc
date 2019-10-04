@@ -41,6 +41,11 @@ let g:rehash256 = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+" Change visual mode highlight colors
+" From: https://stackoverflow.com/a/45798745
+hi Visual cterm=bold ctermbg=blue ctermfg=grey
+
+
 " remap leader key to backslash
 let mapleader = '\'
 " Toggle :set paste
