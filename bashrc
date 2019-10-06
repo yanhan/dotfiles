@@ -138,3 +138,8 @@ eval "$(pyenv init -)"
 
 # for pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
+
+# Aliases
+if [ -f "${HOME}"/dotfiles/aliases ]; then
+  source "${HOME}"/dotfiles/aliases
+fi
