@@ -32,6 +32,7 @@ syntax on
 set modeline
 
 set hidden
+runtime macros/matchit.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN molokai colorscheme configuration
