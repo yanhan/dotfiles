@@ -10,6 +10,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
+Plug 'tpope/vim-surround'
 
 " Initialize plugin system
 call plug#end()
