@@ -18,6 +18,7 @@ alias grbc='g rebase --continue'
 alias grbi='g rebase -i'
 alias grh='git reset --hard'
 alias grhh='grh HEAD'
+alias grpt='g rev-parse --show-toplevel'
 alias gs='g status'
 alias k=kubectl
 alias ka='k apply'
