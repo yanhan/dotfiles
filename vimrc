@@ -34,6 +34,7 @@ set ruler
 syntax on
 " for modelines like `# vim: ts=2 sw=2` for say python files
 set modeline
+set smartcase
 
 set hidden
 runtime macros/matchit.vim
