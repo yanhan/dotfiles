@@ -95,6 +95,34 @@ nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
 nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
 nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 
+" From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
+"
+" About: Select some text in visual mode, press * or # to search for it.
+" Explanation: when the colon character is pressed with a visual selection, it
+" will insert the '<,'> in the EX mode text buffer. The <C-u> is used to erase
+" that. Source: https://stackoverflow.com/a/13831705
+"
+" The <SID> is used to ensure that the VSetSearch function that is used is the
+" one defined in this script, in case there are functions with the same name
+" in other plugins. Source: https://vim.fandom.com/wiki/How_to_write_a_plugin
+"
+" The / and ? initialize the search. <C-R>=@/<CR> lets us insert the contents
+" of the register named / , whose content is populated by the VSetSearch
+" function call.
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  " gv repeats the previous visual selection. "sy yanks the visual selection
+  " to register s.
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+" END OF From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
+
+
 au BufRead,BufNewFile ~/books-impt/how-google-tests-software/how-google-tests-software.md call HowGoogleTestsSoftwareAbbrevs()
 function HowGoogleTestsSoftwareAbbrevs()
   ab dev developer
