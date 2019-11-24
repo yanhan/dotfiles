@@ -54,4 +54,4 @@ Now, launch `vim` and run `:PluginInstall`.
 
 ## LICENSE
 
-[MIT License](/LICENSE), Copyright (c) 2013-2018 Pang Yan Han
+[3-Clause BSD License](/LICENSE), Copyright (c) 2019 Yan Han Pang
