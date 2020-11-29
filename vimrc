@@ -1,24 +1,6 @@
 set nocompatible   " be iMproved
 filetype off       " required!
 
-" For vim-plug: this specifies a directory for plugins
-call plug#begin('~/.vim/plugged')
-
-Plug 'jlanzarotta/bufexplorer'
-Plug 'tomasr/molokai'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'alvan/vim-closetag'
-
-" Initialize plugin system
-call plug#end()
-
 filetype plugin indent on  " required!
 
 set bs=2
@@ -39,6 +21,9 @@ set smartcase
 
 set hidden
 runtime macros/matchit.vim
+
+" For fzf
+set rtp+=~/.fzf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN molokai colorscheme configuration
