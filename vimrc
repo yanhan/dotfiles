@@ -52,6 +52,9 @@ nnoremap <leader>c :call system('xclip -sel clip', @")<CR>
 " Convert .tex files to .pdf on save
 autocmd BufWritePost *.tex !pdflatex <afile>
 
+" Press Ctrl-p to start FZF for fuzzy file search, same as typing :FZF
+nnoremap <C-p> :<C-u>FZF<CR>
+
 " Syntastic minimal recommended config
 " From https://github.com/vim-syntastic/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
