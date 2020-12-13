@@ -192,6 +192,12 @@ fi
 ### END of zsh-git-prompt
 
 
+# Tells fzf to use `rg --files` to build the list of files.
+# Using rg --files will respect .gitignore but also let it work outside of git repos.
+# This is from the "Modern Vim" book by Drew Neil, page 29
+export FZF_DEFAULT_COMMAND='rg --files'
+
+
 
 ### Original code. Some were originally commented out, some not.
 
