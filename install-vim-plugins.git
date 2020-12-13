@@ -49,4 +49,8 @@ if [ ! -d fzf.vim ]; then
 	git clone git://github.com/junegunn/fzf.vim
 fi
 
+if [ ! -d vim-projectionist ]; then
+	git clone git://github.com/tpope/vim-projectionist.git
+fi
+
 popd
