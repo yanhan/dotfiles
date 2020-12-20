@@ -55,6 +55,12 @@ autocmd BufWritePost *.tex !pdflatex <afile>
 " Press Ctrl-p to start FZF for fuzzy file search, same as typing :FZF
 nnoremap <C-p> :<C-u>FZF<CR>
 
+" Open tabs using leader key and digits
+" From: https://vim.fandom.com/wiki/Alternative_tab_navigation
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+
 " Syntastic minimal recommended config
 " From https://github.com/vim-syntastic/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
