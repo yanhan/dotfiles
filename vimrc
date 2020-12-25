@@ -61,6 +61,10 @@ nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
 
+" Delete buffer without closing window
+" From: https://stackoverflow.com/a/8585343
+nnoremap <leader>bd  :bp<bar>sp<bar>bn<bar>bd<CR>
+
 " Syntastic minimal recommended config
 " From https://github.com/vim-syntastic/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
