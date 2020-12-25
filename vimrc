@@ -65,25 +65,6 @@ nnoremap <leader>3 3gt
 " From: https://stackoverflow.com/a/8585343
 nnoremap <leader>bd  :bp<bar>sp<bar>bn<bar>bd<CR>
 
-" Syntastic minimal recommended config
-" From https://github.com/vim-syntastic/syntastic#3-recommended-settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" Use ESLint for syntastic
-" This is a combination of settings from:
-" - https://github.com/mantoni/eslint_d.js#linting
-" - https://github.com/vim-syntastic/syntastic/issues/1692#issuecomment-350153207
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_generic = 1
-let g:syntastic_javascript_eslint_exec = '/bin/ls'
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-let g:syntastic_javascript_eslint_args = '-f compact'
-
 " By default, nerdcommenter uses {- -} style comments for Haskell.
 " Change that to -- style comments instead
 let g:NERDAltDelims_haskell = 1
