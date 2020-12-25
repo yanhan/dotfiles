@@ -18,13 +18,14 @@ following args:
 
 - bashrc
 - gitconfig
+- init.vim
 - tmux.conf
 - vimrc
 - zshrc
 
-eg. to setup the `gitconfig`, `tmux.conf`, `vimrc` and `zshrc`, run:
+eg. to setup `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py gitconfig tmux.conf vimrc zshrc
+    python setup_home_folder_dotfiles.py gitconfig init.vim tmux.conf vimrc zshrc
 
 
 ## haskell-vim-now setup
@@ -37,17 +38,19 @@ These files:
 should be copied to `~/.config/haskell-vim-now` in a setup that uses [haskell-vim-now](https://github.com/begriffs/haskell-vim-now)
 
 
-## Vim setup
+## Installing vim plugins
 
-We are using [Vundle](https://github.com/gmarik/Vundle.vim) as our Vim plugin
-manager. To setup Vundle:
+Run:
+```
+./install-vim-plugins
+```
 
-    # Clone Vundle repository
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    cd ~/.vim/bundle/Vundle.vim
-    # Checkout v0.10.2:
-    git checkout v0.10.2
-    # Install plugins
-    vim +PluginInstall +qall
+Then start vim and run:
+```
+:GoInstallBinaries
+```
 
-Now, launch `vim` and run `:PluginInstall`.
+
+## LICENSE
+
+[3-Clause BSD License](/LICENSE), Copyright (c) 2019 Yan Han Pang
