@@ -101,28 +101,3 @@ function! s:VSetSearch(cmdtype)
   let @s = temp
 endfunction
 " END OF From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
-
-
-au BufRead,BufNewFile ~/books-impt/how-google-tests-software/how-google-tests-software.md call HowGoogleTestsSoftwareAbbrevs()
-function HowGoogleTestsSoftwareAbbrevs()
-  ab dev developer
-  ab devs developers
-  ab cap capability
-  ab caps capabilities
-  ab g+ Google+
-  ab info information
-  ab thru through
-  ab prefs preferences
-  ab env environment
-  ab envs environments
-  ab infra infrastructure
-  ab JS JavaScript
-  ab elem element
-  ab elems elements
-  ab eng engineering
-  ab Eng Engineering
-  ab attr attribute
-  ab db database
-  ab repo repository
-  ab wtf what the fuck
-endfunction
