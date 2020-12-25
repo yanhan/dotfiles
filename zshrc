@@ -18,8 +18,6 @@ source $ZSH/oh-my-zsh.sh
 
 ### User configuration from here
 
-export EDITOR='vim'
-
 # Prints '^C' when Ctrl-c is pressed.
 # From https://vinipsmaker.wordpress.com/2014/02/23/my-zsh-config/
 TRAPINT() {
@@ -32,6 +30,12 @@ path+=("$HOME/.rvm/bin")
 path=("${HOME}/.local/bin"  ${path})
 path+=("${HOME}/library/Python/2.7/bin")
 export PATH
+
+# For nvm
+export NVM_DIR="${HOME}"/.nvm
+[ -s "${NVM_DIR}"/nvm.sh ] && source "${NVM_DIR}"/nvm.sh
+
+export EDITOR='vim'
 
 # Manpages for user installed software, such as git
 export MANPATH=/usr/local/man:$MANPATH
@@ -48,9 +52,6 @@ export CPPFLAGS=-Qunused-arguments
 # http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# Secret stuff
-[ -f $HOME/secret.sh ] && . $HOME/secret.sh
 
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
@@ -153,8 +154,10 @@ if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
 
-### pyenv
+# for pyenv
 eval "$(pyenv init -)"
+
+# for pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
 # Aliases
@@ -195,6 +198,19 @@ GIT_PROMPT_EXECUTABLE='haskell'
 PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
 ### END of zsh-git-prompt
 
+# Aliases
+if [ -f "${HOME}"/dotfiles/aliases ]; then
+  source "${HOME}"/dotfiles/aliases
+fi
+
+if [ -f "${HOME}"/secrets.sh ]; then
+  . "${HOME}"/secrets.sh
+fi
+
+# Tells fzf to use `rg --files` to build the list of files.
+# Using rg --files will respect .gitignore but also let it work outside of git repos.
+# This is from the "Modern Vim" book by Drew Neil, page 29
+export FZF_DEFAULT_COMMAND='rg --files'
 
 
 ### Original code. Some were originally commented out, some not.
