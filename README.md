@@ -28,16 +28,6 @@ eg. to setup `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` and `zshrc`, run:
     python setup_home_folder_dotfiles.py gitconfig init.vim tmux.conf vimrc zshrc
 
 
-## haskell-vim-now setup
-
-These files:
-
-- [plugins.vim](plugins.vim)
-- [vimrc.local.pre](vimrc.local.pre)
-
-should be copied to `~/.config/haskell-vim-now` in a setup that uses [haskell-vim-now](https://github.com/begriffs/haskell-vim-now)
-
-
 ## Installing vim plugins
 
 Run:
