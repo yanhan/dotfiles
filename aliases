@@ -48,5 +48,6 @@ alias paa='pyenv activate awscli'
 alias pyd='pyenv deactivate'
 alias s=ssh
 alias tf=terraform
+alias vim=nvim
 alias v=vim
 alias vr='v -R'
