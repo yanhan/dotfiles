@@ -41,6 +41,16 @@ Then start vim and run:
 ```
 
 
+## Install nvr
+
+Run the [provision-ubuntu-ansible](https://github.com/yanhan/provision-ubuntu-ansible) repo to install the libffi6 library.
+
+Then run:
+```
+pip3 install --user neovim-remote
+```
+
+
 ## LICENSE
 
 [3-Clause BSD License](/LICENSE), Copyright (c) 2019 Yan Han Pang
