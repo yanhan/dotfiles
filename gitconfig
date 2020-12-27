@@ -2,8 +2,6 @@
   name = Pang Yan Han
   email = pangyanhan@gmail.com
 [core]
-  editor = vim
-  excludesfile = ~/dotfiles/gitignore_global
   pager = less -F -X
   excludesfile = ~/dotfiles/gitignore_global
 [color]
