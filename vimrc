@@ -108,6 +108,11 @@ if has('nvim') && executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
+" Start shell
+if has('nvim')
+  command! SH tabnew<bar>terminal
+endif
+
 " From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
 "
 " About: Select some text in visual mode, press * or # to search for it.
