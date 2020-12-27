@@ -38,7 +38,7 @@ export PATH
 export NVM_DIR="${HOME}"/.nvm
 [ -s "${NVM_DIR}"/nvm.sh ] && source "${NVM_DIR}"/nvm.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
