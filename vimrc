@@ -75,6 +75,20 @@ nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
 nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
 nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 
+" Window switching shortcuts, including for terminal mode.
+" From Modern Vim by Drew Neil
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+
+if has('nvim')
+  tnoremap <M-h> <C-\><C-n><C-w>h
+  tnoremap <M-j> <C-\><C-n><C-w>j
+  tnoremap <M-k> <C-\><C-n><C-w>k
+  tnoremap <M-l> <C-\><C-n><C-w>l
+endif
+
 " From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
 "
 " About: Select some text in visual mode, press * or # to search for it.
