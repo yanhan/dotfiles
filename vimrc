@@ -89,6 +89,25 @@ if has('nvim')
   tnoremap <M-l> <C-\><C-n><C-w>l
 endif
 
+" Set VISUAL env var to nvr for terminal mode in nvim. The most common use
+" case for this is running git commit, which opens the nvim editor.
+"
+" `-cc split` opens the temporary buffer in a horizontal split.
+"
+" `--remote-wait` tells nvr to block until the temporary buffer is deleted;
+" that prevents us from executing further commands in terminal mode.
+"
+" `+'set bufhidden=wipe'` handles the situation where the temporary buffer was
+" hidden but not deleted. Without this, nvr will continue to block if the user
+" were to say switch from the temporary buffer to a different buffer, which is
+" confusing. With it, if the temporary buffer was hidden, it will be
+" automatically deleted to unblock the terminal.
+"
+" From Modern Vim by Drew Neil
+if has('nvim') && executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
 " From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
 "
 " About: Select some text in visual mode, press * or # to search for it.
