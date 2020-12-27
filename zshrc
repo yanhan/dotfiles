@@ -35,7 +35,11 @@ export PATH
 export NVM_DIR="${HOME}"/.nvm
 [ -s "${NVM_DIR}"/nvm.sh ] && source "${NVM_DIR}"/nvm.sh
 
-export EDITOR='nvim'
+if [ -x "$(command -v nvim)" ]; then
+	export EDITOR='nvim'
+else
+	export EDITOR=vim
+fi
 
 # Manpages for user installed software, such as git
 export MANPATH=/usr/local/man:$MANPATH
