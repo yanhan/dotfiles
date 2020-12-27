@@ -197,6 +197,16 @@ fi
 # This is from the "Modern Vim" book by Drew Neil, page 29
 export FZF_DEFAULT_COMMAND='rg --files'
 
+# Prevent direct nesting of neovim instances
+# From Modern Vim by Drew Neil
+if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
+  if [ -x "$(command -v nvr)" ]; then
+    alias nvim=nvr
+  else
+    alias nvim='echo "No nesting!"'
+  fi
+fi
+
 
 
 ### Original code. Some were originally commented out, some not.
