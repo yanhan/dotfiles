@@ -179,6 +179,8 @@ add-zsh-hook precmd precmd_job_status
 # above to show us the number of background jobs.
 GIT_PROMPT_EXECUTABLE='haskell'
 PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+### END of zsh-git-prompt
+
 
 # Aliases
 if [ -f "${HOME}"/dotfiles/aliases ]; then
@@ -188,8 +190,6 @@ fi
 if [ -f "${HOME}"/secrets.sh ]; then
   . "${HOME}"/secrets.sh
 fi
-
-### END of zsh-git-prompt
 
 
 # Tells fzf to use `rg --files` to build the list of files.
