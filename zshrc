@@ -25,9 +25,12 @@ TRAPINT() {
   return $((128+$1))
 }
 
+# For pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+
 path+=("$HOME/bin")
 path+=("$HOME/.rvm/bin")
-path=("${HOME}/.local/bin"  ${path})
+path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 path+=("${HOME}/library/Python/2.7/bin")
 export PATH
 
