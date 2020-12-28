@@ -67,7 +67,7 @@ def _get_dotfile_backup_path(file_info):
   return "{}{}".format(backup_path, bak_file_num_string)
 
 def _setup_dotfile(dotfile_name):
-  global VALID_DOTFILES, TEMPLATE_FOLDER
+  global HOME_FOLDER, VALID_DOTFILES, TEMPLATE_FOLDER
   file_info = VALID_DOTFILES[dotfile_name]
   dest_dir = file_info.directory
   template_dotfile_path = os.path.join(TEMPLATE_FOLDER, dotfile_name)
@@ -83,6 +83,8 @@ def _setup_dotfile(dotfile_name):
     print("Backing up {} to {}".format(dest_dotfile, dotfile_backup_path))
     print("Copying template {} to {}".format(dotfile_name, dest_dotfile))
   elif dest_dotfile_sha256sum is None:
+    if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
+      os.makedirs(dest_dir, mode=0750)
     shutil.copyfile(template_dotfile_path, dest_dotfile)
     print("Copying template {} to {}".format(dotfile_name,
       dest_dotfile
