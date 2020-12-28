@@ -41,22 +41,6 @@ else
 	export EDITOR=vim
 fi
 
-# Manpages for user installed software, such as git
-export MANPATH=/usr/local/man:$MANPATH
-
-# Set JAVA_HOME for Mac OS X
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-# Remove the error stated here:
-# http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa
-export CFLAGS=-Qunused-arguments
-export CPPFLAGS=-Qunused-arguments
-
-# For sphinx-quickstart
-# http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color-bce
@@ -164,13 +148,9 @@ eval "$(pyenv init -)"
 # for pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
-# Aliases
-alias date=gdate
-alias rstudio='open -a Rstudio'
-
 
 ### For zsh-git-prompt
-source "${HOME}/zsh-git-prompt/zshrc.sh"
+source "${HOME}/code/zsh-git-prompt/zshrc.sh"
 
 # This uses the `JOBSCOUNT` global variable to show the number of running and
 # suspended jobs in the current shell.
@@ -202,6 +182,7 @@ GIT_PROMPT_EXECUTABLE='haskell'
 PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
 ### END of zsh-git-prompt
 
+
 # Aliases
 if [ -f "${HOME}"/dotfiles/aliases ]; then
   source "${HOME}"/dotfiles/aliases
@@ -210,6 +191,7 @@ fi
 if [ -f "${HOME}"/secrets.sh ]; then
   . "${HOME}"/secrets.sh
 fi
+
 
 # Tells fzf to use `rg --files` to build the list of files.
 # Using rg --files will respect .gitignore but also let it work outside of git repos.
@@ -225,6 +207,29 @@ if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
     alias nvim='echo "No nesting!"'
   fi
 fi
+
+
+########## Mac specific stuff
+
+# Aliases
+alias date=gdate
+alias rstudio='open -a Rstudio'
+
+# Manpages for user installed software, such as git
+export MANPATH=/usr/local/man:$MANPATH
+
+# Set JAVA_HOME for Mac OS X
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Remove the error stated here:
+# http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
+# For sphinx-quickstart
+# http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 
 ### Original code. Some were originally commented out, some not.

@@ -1,8 +1,4 @@
-# Mac OS X specific
-###################
-.DS_Store
-
-# Vim, Emacs temporary files
+# Text editor temporary files
 ############################
 *~
 *.swo
@@ -24,6 +20,8 @@
 *.jar
 # git bundle
 *.bundle
+# vagrant
+*.box
 
 # Build directories
 ###################
@@ -33,6 +31,9 @@
 #####################
 venv
 node_modules
+.vagrant
+### Haskell stack
+.stack-work
 
 # ClojureScript
 ###############
@@ -41,3 +42,12 @@ node_modules
 # shelly.hs
 ###########
 .shelly
+
+# LaTeX
+#######
+*.aux
+*.log
+
+# Mac OS X specific
+###################
+.DS_Store
