@@ -13,6 +13,10 @@ fi
 
 pushd "${PACKAGE_PATH}"
 
+if [ ! -d molokai ]; then
+	git clone git://github.com/tomasr/molokai.git
+fi
+
 if [ ! -d nerdcommenter ]; then
 	git clone git://github.com/preservim/nerdcommenter.git
 fi
