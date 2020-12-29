@@ -25,6 +25,16 @@ runtime macros/matchit.vim
 " For fzf
 set rtp+=~/.fzf
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEGIN molokai colorscheme configuration
+if !has('macunix') && has('unix')
+  colorscheme molokai
+  let g:rehash256 = 1
+endif
+" END molokai colorscheme configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " Change visual mode highlight colors
 " From: https://stackoverflow.com/a/45798745
 hi Visual cterm=bold ctermbg=blue ctermfg=grey
@@ -134,15 +144,17 @@ endfunction
 
 
 """"""""""" Mac specific stuff
+if has('macunix')
+  " For solarized plugin (color scheme)
+  " https://github.com/altercation/vim-colors-solarized
+  syntax enable
+  set background=dark
+  colorscheme solarized
 
-" For solarized plugin (color scheme)
-" https://github.com/altercation/vim-colors-solarized
-syntax enable
-set background=dark
-colorscheme solarized
+  " For copying and pasting using pbcopy in tmux.
+  " We didn't actually need this for using pbcopy in tmux but we'll just add it
+  " Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+  set clipboard=unnamed
 
-" For copying and pasting using pbcopy in tmux.
-" We didn't actually need this for using pbcopy in tmux but we'll just add it
-" Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
-set clipboard=unnamed
+endif
 """""""""" END OF Mac specific stuff
