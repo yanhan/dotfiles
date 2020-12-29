@@ -46,7 +46,7 @@ fi
 
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color-bce
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 # vi mode configuration.
 # This is based on code from:
