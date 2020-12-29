@@ -57,4 +57,10 @@ if [ ! -d vim-obsession ]; then
 	git clone git://github.com/tpope/vim-obsession.git
 fi
 
+### Mac specific
+
+if [ ! -d vim-colors-solarized ]; then
+	git clone git://github.com/altercation/vim-colors-solarized.git
+fi
+
 popd
