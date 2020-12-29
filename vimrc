@@ -27,8 +27,10 @@ set rtp+=~/.fzf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BEGIN molokai colorscheme configuration
-colorscheme molokai
-let g:rehash256 = 1
+if !has('macunix') && has('unix')
+  colorscheme molokai
+  let g:rehash256 = 1
+endif
 " END molokai colorscheme configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -139,3 +141,20 @@ function! s:VSetSearch(cmdtype)
   let @s = temp
 endfunction
 " END OF From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
+
+
+""""""""""" Mac specific stuff
+if has('macunix')
+  " For solarized plugin (color scheme)
+  " https://github.com/altercation/vim-colors-solarized
+  syntax enable
+  set background=dark
+  colorscheme solarized
+
+  " For copying and pasting using pbcopy in tmux.
+  " We didn't actually need this for using pbcopy in tmux but we'll just add it
+  " Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+  set clipboard=unnamed
+
+endif
+"""""""""" END OF Mac specific stuff
