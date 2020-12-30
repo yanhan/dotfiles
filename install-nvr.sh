@@ -14,15 +14,19 @@ main() {
 	set -u
 
 	declare -r python_version=3.9.1
+	declare -r pyenv_dir="${HOME}"/.pyenv
 	local lines_found
 
 	set +e
 	lines_found="$(pyenv versions | grep "${python_version}" | wc -l)"
 	set -e
 	if [ "${lines_found}" -eq 0 ]; then
-		pushd ~/.pyenv
-		git fetch origin
-		git merge --ff-only origin/master
+		if [ -d "${pyenv_dir}" ]; then
+			pushd "${pyenv_dir}"
+			git fetch origin
+			git merge --ff-only origin/master
+			popd
+		fi
 		pyenv install "${python_version}"
 		pyenv global "${python_version}"
 		popd
