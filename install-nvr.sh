@@ -29,7 +29,6 @@ main() {
 		fi
 		pyenv install "${python_version}"
 		pyenv global "${python_version}"
-		popd
 	fi
 
 	set +e
