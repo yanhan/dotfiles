@@ -7,11 +7,15 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+declare -r zsh_git_prompt_dir="${HOME}"/code/zsh-git-prompt
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
+if [ ! -d "${zsh_git_prompt_dir}" ]; then
+  plugins=(git)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,10 +163,6 @@ eval "$(pyenv init -)"
 # for pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
-
-### For zsh-git-prompt
-source "${HOME}/code/zsh-git-prompt/zshrc.sh"
-
 # This uses the `JOBSCOUNT` global variable to show the number of running and
 # suspended jobs in the current shell.
 # Adapted from https://unix.stackexchange.com/a/68635
@@ -189,8 +189,11 @@ add-zsh-hook precmd precmd_job_status
 #
 # The `JOBSCOUNT` variable is set by the `precmd_job_status` function defined
 # above to show us the number of background jobs.
-GIT_PROMPT_EXECUTABLE='haskell'
-PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+if [ -d "${zsh_git_prompt_dir}" ]; then
+  source "${zsh_git_prompt_dir}/zshrc.sh"
+  GIT_PROMPT_EXECUTABLE='haskell'
+  PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+fi
 ### END of zsh-git-prompt
 
 
