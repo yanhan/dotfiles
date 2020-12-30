@@ -36,7 +36,7 @@ export GOPATH="${HOME}/go"
 if [ "$(uname)" = "Darwin" ]; then
   path+=("$HOME/bin")
   path+=("$HOME/.rvm/bin")
-  path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
+  path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  "${GOPATH}"/bin  ${path})
   path+=("${HOME}/library/Python/2.7/bin")
 else
   path+=(/opt/texbin  "$HOME/bin"  "${HOME}/google-cloud-sdk/bin"  "/usr/local/go/bin"  "${GOPATH}/bin"  "${HOME}/.cargo/bin")
