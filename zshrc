@@ -233,7 +233,10 @@ if [ "$(uname)" = "Darwin" ]; then
   export MANPATH=/usr/local/man:$MANPATH
 
   # Set JAVA_HOME for Mac OS X
-  export JAVA_HOME=$(/usr/libexec/java_home)
+  declare -r java_home_program=/usr/libexec/java_home
+  if [ -x "${java_home_program}" ]; then
+    export JAVA_HOME="$("${java_home_program}")"
+  fi
 
   # Remove the error stated here:
   # http://stackoverflow.com/questions/22313407/clang-error-unknown-argument-mno-fused-madd-python-package-installation-fa
