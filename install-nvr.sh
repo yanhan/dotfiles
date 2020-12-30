@@ -21,7 +21,7 @@ main() {
 	lines_found="$(pyenv versions | grep "${python_version}" | wc -l)"
 	set -e
 	if [ "${lines_found}" -eq 0 ]; then
-		if [ -d "${pyenv_dir}" ]; then
+		if [ -d "${pyenv_dir}"/.git ]; then
 			pushd "${pyenv_dir}"
 			git fetch origin
 			git merge --ff-only origin/master
