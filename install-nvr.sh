@@ -13,7 +13,7 @@ main() {
 	eval "$(pyenv init -)"
 	set -u
 
-	declare -r python_version=3.9.1
+	declare -r python_version=3.9.0
 	declare -r pyenv_dir="${HOME}"/.pyenv
 	local lines_found
 
