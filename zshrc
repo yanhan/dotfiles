@@ -235,7 +235,11 @@ if [ "$(uname)" = "Darwin" ]; then
   # Set JAVA_HOME for Mac OS X
   declare -r java_home_program=/usr/libexec/java_home
   if [ -x "${java_home_program}" ]; then
-    export JAVA_HOME="$("${java_home_program}")"
+    tmp_java_home="$("${java_home_program}" 2>/dev/null)"
+    tmp_java_home_ret_code=${?}
+    if [ "${tmp_java_home_ret_code}" -eq 0 ]; then
+      export JAVA_HOME=${tmp_java_home}
+    fi
   fi
 
   # Remove the error stated here:
