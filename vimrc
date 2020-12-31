@@ -48,8 +48,19 @@ nnoremap <leader>o :set paste!<CR>
 nnoremap <leader>l :ls<CR>:b<space>
 " Toggle NERDTree open/close
 nnoremap <leader>nt :NERDTreeToggle<CR>
-" Use F3 to copy from the default register
-nnoremap <leader>c :call system('xclip -sel clip', @")<CR>
+
+" Some shortcuts to work with the system clipboard.
+if has('macunix')
+  nnoremap <leader>c :call system('pbcopy', @")<CR>
+  nnoremap <leader>x :.w ! pbcopy<CR><CR>dd
+  nnoremap <leader>yy :.w ! pbcopy<CR><CR>
+  nnoremap <leader>pp :r ! pbpaste<CR>
+else
+  nnoremap <leader>c :call system('xclip -sel clip', @")<CR>
+  nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
+  nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
+  nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
+endif
 
 " Convert .tex files to .pdf on save
 autocmd BufWritePost *.tex !pdflatex <afile>
@@ -70,12 +81,6 @@ nnoremap <leader>bd  :bp<bar>sp<bar>bn<bar>bd<CR>
 " By default, nerdcommenter uses {- -} style comments for Haskell.
 " Change that to -- style comments instead
 let g:NERDAltDelims_haskell = 1
-
-" Some shortcuts to work with the system clipboard.
-" These were originally temporary commands we added for hroamer ASCIInema recording
-nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
-nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
-nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 
 " Window switching shortcuts, including for terminal mode.
 " From Modern Vim by Drew Neil
