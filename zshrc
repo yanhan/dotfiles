@@ -193,6 +193,10 @@ if [ -d "${zsh_git_prompt_dir}" ]; then
   source "${zsh_git_prompt_dir}/zshrc.sh"
   GIT_PROMPT_EXECUTABLE='haskell'
   PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
+else
+  # When using the oh-my-zsh git plugin, show background and suspended jobs
+  # From: https://blog.2vcps.io/2020/07/02/oh-my-zsh-fix-my-command-prompt/
+  PS1=$PROMPT'${JOBSCOUNT} '
 fi
 ### END of zsh-git-prompt
 
