@@ -173,7 +173,7 @@ function precmd_job_status() {
   if [[ "${JOBSCOUNT}" == "0r/0s" ]]; then
     JOBSCOUNT=""
   else
-    JOBSCOUNT=" [J:${JOBSCOUNT}]"
+    JOBSCOUNT=" [J:${JOBSCOUNT}] "
   fi
 }
 # Trick we learnt from zsh-git-prompt to execute the precmd_job_status function
@@ -196,7 +196,7 @@ if [ -d "${zsh_git_prompt_dir}" ]; then
 else
   # When using the oh-my-zsh git plugin, show background and suspended jobs
   # From: https://blog.2vcps.io/2020/07/02/oh-my-zsh-fix-my-command-prompt/
-  PS1=$PROMPT'${JOBSCOUNT} '
+  PS1=$PROMPT'${JOBSCOUNT}'
 fi
 ### END of zsh-git-prompt
 
