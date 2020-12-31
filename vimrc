@@ -89,6 +89,7 @@ if has('nvim')
   tnoremap <M-j> <C-\><C-n><C-w>j
   tnoremap <M-k> <C-\><C-n><C-w>k
   tnoremap <M-l> <C-\><C-n><C-w>l
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 " Set VISUAL env var to nvr for terminal mode in nvim. The most common use
