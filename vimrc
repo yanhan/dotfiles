@@ -25,21 +25,6 @@ runtime macros/matchit.vim
 " For fzf
 set rtp+=~/.fzf
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BEGIN molokai colorscheme configuration
-if !has('macunix') && has('unix')
-  colorscheme molokai
-  let g:rehash256 = 1
-endif
-" END molokai colorscheme configuration
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-" Change visual mode highlight colors
-" From: https://stackoverflow.com/a/45798745
-hi Visual cterm=bold ctermbg=blue ctermfg=grey
-
-
 " remap leader key to backslash
 let mapleader = '\'
 " Toggle :set paste
@@ -48,19 +33,6 @@ nnoremap <leader>o :set paste!<CR>
 nnoremap <leader>l :ls<CR>:b<space>
 " Toggle NERDTree open/close
 nnoremap <leader>nt :NERDTreeToggle<CR>
-
-" Some shortcuts to work with the system clipboard.
-if has('macunix')
-  nnoremap <leader>c :call system('pbcopy', @")<CR>
-  nnoremap <leader>x :.w ! pbcopy<CR><CR>dd
-  nnoremap <leader>yy :.w ! pbcopy<CR><CR>
-  nnoremap <leader>pp :r ! pbpaste<CR>
-else
-  nnoremap <leader>c :call system('xclip -sel clip', @")<CR>
-  nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
-  nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
-  nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
-endif
 
 " Convert .tex files to .pdf on save
 autocmd BufWritePost *.tex !pdflatex <afile>
@@ -157,10 +129,30 @@ if has('macunix')
   set background=dark
   colorscheme solarized
 
+  " Some shortcuts to work with the system clipboard.
+  nnoremap <leader>c :call system('pbcopy', @")<CR>
+  nnoremap <leader>x :.w ! pbcopy<CR><CR>dd
+  nnoremap <leader>yy :.w ! pbcopy<CR><CR>
+  nnoremap <leader>pp :r ! pbpaste<CR>
+
   " For copying and pasting using pbcopy in tmux.
   " We didn't actually need this for using pbcopy in tmux but we'll just add it
   " Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
   set clipboard=unnamed
+else
+  colorscheme molokai
+  let g:rehash256 = 1
 
+  " Some shortcuts to work with the system clipboard.
+  nnoremap <leader>c :call system('xclip -sel clip', @")<CR>
+  nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
+  nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
+  nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 endif
 """""""""" END OF Mac specific stuff
+
+
+" Change visual mode highlight colors
+" From: https://stackoverflow.com/a/45798745
+" This is placed after the color scheme code
+hi Visual cterm=bold ctermbg=blue ctermfg=grey
