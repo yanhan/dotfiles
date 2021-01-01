@@ -8,18 +8,19 @@ import os.path
 import re
 import shutil
 import sys
+from typing import List
 
 HOME_FOLDER = os.environ["HOME"]
 
 class ConfigFile:
-  def __init__(self, directory, filename):
+  def __init__(self, directory: str, filename: str) -> None:
     self.directory = directory
     self.filename = filename
 
-  def get_path(self):
+  def get_path(self) -> str:
       return os.path.join(self.directory, self.filename)
 
-  def get_backup_path(self):
+  def get_backup_path(self) -> str:
       filename = self.filename
       if filename[0] == ".":
           filename = filename[1:]
@@ -40,7 +41,7 @@ VALID_DOTFILES = {
 TEMPLATE_FOLDER = "templates"
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
-def _get_sha256sum_of_file(file_name):
+def _get_sha256sum_of_file(file_name: str):
   if os.path.exists(file_name):
     with open(file_name, "rb") as f:
       h = hashlib.sha256()
@@ -49,7 +50,7 @@ def _get_sha256sum_of_file(file_name):
   else:
     return None
 
-def _get_dotfile_backup_path(file_info):
+def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
   backup_path = file_info.get_backup_path()
   bak_file_list = glob.glob("{}*".format(backup_path))
   print(bak_file_list)
@@ -66,7 +67,7 @@ def _get_dotfile_backup_path(file_info):
     bak_file_num_string = ".1"
   return "{}{}".format(backup_path, bak_file_num_string)
 
-def _setup_dotfile(dotfile_name):
+def _setup_dotfile(dotfile_name: str) -> None:
   global HOME_FOLDER, VALID_DOTFILES, TEMPLATE_FOLDER
   file_info = VALID_DOTFILES[dotfile_name]
   dest_dir = file_info.directory
@@ -84,13 +85,13 @@ def _setup_dotfile(dotfile_name):
     print("Copying template {} to {}".format(dotfile_name, dest_dotfile))
   elif dest_dotfile_sha256sum is None:
     if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
-      os.makedirs(dest_dir, mode=0750)
+      os.makedirs(dest_dir, mode=0o0750)
     shutil.copyfile(template_dotfile_path, dest_dotfile)
     print("Copying template {} to {}".format(dotfile_name,
       dest_dotfile
     ))
 
-def _main(dotfiles_list):
+def _main(dotfiles_list: List[str]) -> None:
   valid_dotfiles = [f for f in dotfiles_list if f in VALID_DOTFILES]
   for dotfile in valid_dotfiles:
     _setup_dotfile(dotfile)
