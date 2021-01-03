@@ -22,7 +22,9 @@ class ConfigFile:
     return os.path.join(self.directory, self.filename)
 
   def get_backup_path(self) -> str:
-    return os.path.join(self.directory, "{}.bak".format(self._get_non_dotted_filename()))
+    return os.path.join(
+      self.directory, "{}.bak".format(self._get_non_dotted_filename())
+    )
 
   def _get_non_dotted_filename(self) -> str:
     if self.filename[0] == ".":
@@ -80,8 +82,7 @@ def _setup_dotfile(dotfile_name: str) -> None:
   template_sha256sum = _get_file_sha256sum(template_path)
   dest_path = file_info.get_path()
   dest_sha256sum = _get_file_sha256sum(dest_path)
-  if dest_sha256sum is not None and \
-      dest_sha256sum != template_sha256sum:
+  if dest_sha256sum is not None and dest_sha256sum != template_sha256sum:
     # backup original dotfile
     backup_path = _get_dotfile_backup_path(file_info)
     print("Backing up {} to {}".format(dest_path, backup_path))
@@ -92,9 +93,7 @@ def _setup_dotfile(dotfile_name: str) -> None:
     dest_dir = file_info.directory
     if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
       os.makedirs(dest_dir, mode=0o0750)
-    print("Copying template {} to {}".format(dotfile_name,
-      dest_path
-    ))
+    print("Copying template {} to {}".format(dotfile_name, dest_path))
     shutil.copyfile(template_path, dest_path)
 
 def _main(dotfiles: List[str]) -> None:
