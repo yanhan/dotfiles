@@ -1,5 +1,5 @@
-# Copies template dotfiles to be placed in the HOME folder.
-# Template dotfiles source from true dotfiles in this repository.
+# Copies template config files to be placed in the HOME folder.
+# Template config files source from true config files in this repository.
 
 import glob
 import hashlib
@@ -48,7 +48,7 @@ class ConfigFile:
     global TEMPLATE_FOLDER
     return os.path.join(TEMPLATE_FOLDER, self._get_non_dotted_filename())
 
-VALID_DOTFILES = {
+VALID_CONFIG_FILES = {
   "bashrc": ConfigFile(HOME_FOLDER, ".bashrc"),
   "gitconfig": ConfigFile(HOME_FOLDER, ".gitconfig"),
   "init.vim": ConfigFile(
@@ -71,31 +71,31 @@ def _get_file_sha256sum(filename: str) -> Optional[str]:
   else:
     return None
 
-def _setup_dotfile(dotfile_name: str) -> None:
-  global HOME_FOLDER, VALID_DOTFILES
-  file_info = VALID_DOTFILES[dotfile_name]
+def _setup_config_file(filename: str) -> None:
+  global HOME_FOLDER, VALID_CONFIG_FILES
+  file_info = VALID_CONFIG_FILES[filename]
   template_path = file_info.get_template_path()
   template_sha256sum = _get_file_sha256sum(template_path)
   dest_path = file_info.get_path()
   dest_sha256sum = _get_file_sha256sum(dest_path)
   if dest_sha256sum is not None and dest_sha256sum != template_sha256sum:
-    # backup original dotfile
+    # backup original config file
     backup_path = file_info.get_backup_path()
     print("Backing up {} to {}".format(dest_path, backup_path))
     shutil.move(dest_path, backup_path)
-    print("Copying template {} to {}".format(dotfile_name, dest_path))
+    print("Copying template {} to {}".format(filename, dest_path))
     shutil.copyfile(template_path, dest_path)
   elif dest_sha256sum is None:
     dest_dir = file_info.directory
     if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
       os.makedirs(dest_dir, mode=0o0750)
-    print("Copying template {} to {}".format(dotfile_name, dest_path))
+    print("Copying template {} to {}".format(filename, dest_path))
     shutil.copyfile(template_path, dest_path)
 
-def _main(dotfiles: List[str]) -> None:
-  valid_dotfiles = [f for f in dotfiles if f in VALID_DOTFILES]
-  for f in valid_dotfiles:
-    _setup_dotfile(f)
+def _main(filenames: List[str]) -> None:
+  valid_filenames = [f for f in filenames if f in VALID_CONFIG_FILES]
+  for f in valid_filenames:
+    _setup_config_file(f)
 
 if __name__ == "__main__":
   _main(sys.argv[1:])
