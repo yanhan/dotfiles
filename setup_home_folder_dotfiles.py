@@ -54,7 +54,6 @@ def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
   global BAK_FILE_REGEX
   backup_path = file_info.get_backup_path()
   bak_files = glob.glob("{}*".format(backup_path))
-  print(bak_files)
   digits_used = []
   for f in bak_files:
     match_obj = BAK_FILE_REGEX.search(f)
