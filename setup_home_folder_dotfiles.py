@@ -91,10 +91,10 @@ def _setup_dotfile(dotfile_name: str) -> None:
       dest_dotfile
     ))
 
-def _main(dotfiles_list: List[str]) -> None:
-  valid_dotfiles = [f for f in dotfiles_list if f in VALID_DOTFILES]
-  for dotfile in valid_dotfiles:
-    _setup_dotfile(dotfile)
+def _main(dotfiles: List[str]) -> None:
+  valid_dotfiles = [f for f in dotfiles if f in VALID_DOTFILES]
+  for f in valid_dotfiles:
+    _setup_dotfile(f)
 
 if __name__ == "__main__":
   _main(sys.argv[1:])
