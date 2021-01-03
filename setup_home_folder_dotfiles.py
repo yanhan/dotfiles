@@ -11,6 +11,7 @@ import sys
 from typing import List, Optional
 
 HOME_FOLDER = os.environ["HOME"]
+TEMPLATE_FOLDER = "templates"
 
 class ConfigFile:
   def __init__(self, directory: str, filename: str) -> None:
@@ -21,10 +22,16 @@ class ConfigFile:
     return os.path.join(self.directory, self.filename)
 
   def get_backup_path(self) -> str:
-    filename = self.filename
-    if filename[0] == ".":
-      filename = filename[1:]
-    return os.path.join(self.directory, "{}.bak".format(filename))
+    return os.path.join(self.directory, "{}.bak".format(self._get_non_dotted_filename()))
+
+  def _get_non_dotted_filename(self) -> str:
+    if self.filename[0] == ".":
+      return self.filename[1:]
+    return self.filename
+
+  def get_template_path(self) -> str:
+    global TEMPLATE_FOLDER
+    return os.path.join(TEMPLATE_FOLDER, self._get_non_dotted_filename())
 
 VALID_DOTFILES = {
   "bashrc": ConfigFile(HOME_FOLDER, ".bashrc"),
@@ -38,7 +45,6 @@ VALID_DOTFILES = {
   "zshrc": ConfigFile(HOME_FOLDER, ".zshrc"),
 }
 
-TEMPLATE_FOLDER = "templates"
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
 def _get_file_sha256sum(filename: str) -> Optional[str]:
@@ -68,9 +74,9 @@ def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
   return "{}{}".format(backup_path, digit_suffix)
 
 def _setup_dotfile(dotfile_name: str) -> None:
-  global HOME_FOLDER, VALID_DOTFILES, TEMPLATE_FOLDER
+  global HOME_FOLDER, VALID_DOTFILES
   file_info = VALID_DOTFILES[dotfile_name]
-  template_dotfile_path = os.path.join(TEMPLATE_FOLDER, dotfile_name)
+  template_dotfile_path = file_info.get_template_path()
   template_dotfile_sha256sum = _get_file_sha256sum(template_dotfile_path)
   dest_dotfile = file_info.get_path()
   dest_dotfile_sha256sum = _get_file_sha256sum(dest_dotfile)
