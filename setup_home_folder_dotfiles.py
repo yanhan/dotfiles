@@ -84,18 +84,18 @@ def _setup_dotfile(dotfile_name: str) -> None:
       dest_sha256sum != template_sha256sum:
     # backup original dotfile
     backup_path = _get_dotfile_backup_path(file_info)
-    shutil.move(dest_path, backup_path)
-    shutil.copyfile(template_path, dest_path)
     print("Backing up {} to {}".format(dest_path, backup_path))
+    shutil.move(dest_path, backup_path)
     print("Copying template {} to {}".format(dotfile_name, dest_path))
+    shutil.copyfile(template_path, dest_path)
   elif dest_sha256sum is None:
     dest_dir = file_info.directory
     if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
       os.makedirs(dest_dir, mode=0o0750)
-    shutil.copyfile(template_path, dest_path)
     print("Copying template {} to {}".format(dotfile_name,
       dest_path
     ))
+    shutil.copyfile(template_path, dest_path)
 
 def _main(dotfiles: List[str]) -> None:
   valid_dotfiles = [f for f in dotfiles if f in VALID_DOTFILES]
