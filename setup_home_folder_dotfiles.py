@@ -41,9 +41,9 @@ VALID_DOTFILES = {
 TEMPLATE_FOLDER = "templates"
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
-def _get_sha256sum_of_file(file_name: str):
-  if os.path.exists(file_name):
-    with open(file_name, "rb") as f:
+def _get_sha256sum_of_file(filename: str):
+  if os.path.exists(filename):
+    with open(filename, "rb") as f:
       h = hashlib.sha256()
       h.update(f.read())
       return h.hexdigest()
