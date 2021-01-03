@@ -18,13 +18,13 @@ class ConfigFile:
     self.filename = filename
 
   def get_path(self) -> str:
-      return os.path.join(self.directory, self.filename)
+    return os.path.join(self.directory, self.filename)
 
   def get_backup_path(self) -> str:
-      filename = self.filename
-      if filename[0] == ".":
-          filename = filename[1:]
-      return os.path.join(self.directory, "{}.bak".format(filename))
+    filename = self.filename
+    if filename[0] == ".":
+      filename = filename[1:]
+    return os.path.join(self.directory, "{}.bak".format(filename))
 
 VALID_DOTFILES = {
   "bashrc": ConfigFile(HOME_FOLDER, ".bashrc"),
