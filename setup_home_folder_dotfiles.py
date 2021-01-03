@@ -53,20 +53,20 @@ def _get_file_sha256sum(filename: str) -> Optional[str]:
 def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
   global BAK_FILE_REGEX
   backup_path = file_info.get_backup_path()
-  bak_file_list = glob.glob("{}*".format(backup_path))
-  print(bak_file_list)
-  digit_list = []
-  for f in bak_file_list:
+  bak_files = glob.glob("{}*".format(backup_path))
+  print(bak_files)
+  digits_used = []
+  for f in bak_files:
     match_obj = BAK_FILE_REGEX.search(f)
     if match_obj is not None:
-      digit_list.append(int(match_obj.group(1)))
+      digits_used.append(int(match_obj.group(1)))
 
-  bak_file_num_string = ""
-  if digit_list:
-    bak_file_num_string = ".{}".format(str(max(digit_list) + 1))
-  elif bak_file_list:
-    bak_file_num_string = ".1"
-  return "{}{}".format(backup_path, bak_file_num_string)
+  digit_suffix = ""
+  if digits_used:
+    digit_suffix = ".{}".format(str(max(digits_used) + 1))
+  elif bak_files:
+    digit_suffix = ".1"
+  return "{}{}".format(backup_path, digit_suffix)
 
 def _setup_dotfile(dotfile_name: str) -> None:
   global HOME_FOLDER, VALID_DOTFILES, TEMPLATE_FOLDER
