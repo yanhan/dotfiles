@@ -76,25 +76,25 @@ def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
 def _setup_dotfile(dotfile_name: str) -> None:
   global HOME_FOLDER, VALID_DOTFILES
   file_info = VALID_DOTFILES[dotfile_name]
-  template_dotfile_path = file_info.get_template_path()
-  template_dotfile_sha256sum = _get_file_sha256sum(template_dotfile_path)
-  dest_dotfile = file_info.get_path()
-  dest_dotfile_sha256sum = _get_file_sha256sum(dest_dotfile)
-  if dest_dotfile_sha256sum is not None and \
-      dest_dotfile_sha256sum != template_dotfile_sha256sum:
+  template_path = file_info.get_template_path()
+  template_sha256sum = _get_file_sha256sum(template_path)
+  dest_path = file_info.get_path()
+  dest_sha256sum = _get_file_sha256sum(dest_path)
+  if dest_sha256sum is not None and \
+      dest_sha256sum != template_sha256sum:
     # backup original dotfile
-    dotfile_backup_path = _get_dotfile_backup_path(file_info)
-    shutil.move(dest_dotfile, dotfile_backup_path)
-    shutil.copyfile(template_dotfile_path, dest_dotfile)
-    print("Backing up {} to {}".format(dest_dotfile, dotfile_backup_path))
-    print("Copying template {} to {}".format(dotfile_name, dest_dotfile))
-  elif dest_dotfile_sha256sum is None:
+    backup_path = _get_dotfile_backup_path(file_info)
+    shutil.move(dest_path, backup_path)
+    shutil.copyfile(template_path, dest_path)
+    print("Backing up {} to {}".format(dest_path, backup_path))
+    print("Copying template {} to {}".format(dotfile_name, dest_path))
+  elif dest_sha256sum is None:
     dest_dir = file_info.directory
     if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
       os.makedirs(dest_dir, mode=0o0750)
-    shutil.copyfile(template_dotfile_path, dest_dotfile)
+    shutil.copyfile(template_path, dest_path)
     print("Copying template {} to {}".format(dotfile_name,
-      dest_dotfile
+      dest_path
     ))
 
 def _main(dotfiles: List[str]) -> None:
