@@ -41,7 +41,7 @@ VALID_DOTFILES = {
 TEMPLATE_FOLDER = "templates"
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
-def _get_sha256sum_of_file(filename: str) -> Optional[str]:
+def _get_file_sha256sum(filename: str) -> Optional[str]:
   if os.path.exists(filename):
     with open(filename, "rb") as f:
       h = hashlib.sha256()
@@ -72,9 +72,9 @@ def _setup_dotfile(dotfile_name: str) -> None:
   file_info = VALID_DOTFILES[dotfile_name]
   dest_dir = file_info.directory
   template_dotfile_path = os.path.join(TEMPLATE_FOLDER, dotfile_name)
-  template_dotfile_sha256sum = _get_sha256sum_of_file(template_dotfile_path)
+  template_dotfile_sha256sum = _get_file_sha256sum(template_dotfile_path)
   dest_dotfile = file_info.get_path()
-  dest_dotfile_sha256sum = _get_sha256sum_of_file(dest_dotfile)
+  dest_dotfile_sha256sum = _get_file_sha256sum(dest_dotfile)
   if dest_dotfile_sha256sum is not None and \
       dest_dotfile_sha256sum != template_dotfile_sha256sum:
     # backup original dotfile
