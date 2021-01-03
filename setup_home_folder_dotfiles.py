@@ -8,7 +8,7 @@ import os.path
 import re
 import shutil
 import sys
-from typing import List
+from typing import List, Optional
 
 HOME_FOLDER = os.environ["HOME"]
 
@@ -41,7 +41,7 @@ VALID_DOTFILES = {
 TEMPLATE_FOLDER = "templates"
 BAK_FILE_REGEX = re.compile(r"""\.bak\.(\d+)$""")
 
-def _get_sha256sum_of_file(filename: str):
+def _get_sha256sum_of_file(filename: str) -> Optional[str]:
   if os.path.exists(filename):
     with open(filename, "rb") as f:
       h = hashlib.sha256()
