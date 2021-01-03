@@ -51,6 +51,7 @@ def _get_file_sha256sum(filename: str) -> Optional[str]:
     return None
 
 def _get_dotfile_backup_path(file_info: ConfigFile) -> str:
+  global BAK_FILE_REGEX
   backup_path = file_info.get_backup_path()
   bak_file_list = glob.glob("{}*".format(backup_path))
   print(bak_file_list)
