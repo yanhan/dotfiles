@@ -40,6 +40,12 @@ if [ "$(uname)" = "Darwin" ]; then
   path+=("${HOME}/library/Python/2.7/bin")
 else
   path+=(/opt/texbin  "$HOME/bin"  "${HOME}/google-cloud-sdk/bin"  "/usr/local/go/bin"  "${GOPATH}/bin"  "${HOME}/.cargo/bin")
+  # For tfenv, the Terraform version manager
+  # https://github.com/tfutils/tfenv
+  path+=("${HOME}/.tfenv/bin")
+  # For tgenv, the Terragrunt version manager
+  # https://github.com/cunymatthieu/tgenv
+  path+=("${HOME}/.tgenv/bin")
   # ${HOME}/.local/bin is for Haskell Stack
   path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 fi
