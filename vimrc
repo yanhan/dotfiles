@@ -151,6 +151,21 @@ else
 endif
 """""""""" END OF Mac specific stuff
 
+let g:ale_linters = {
+\ 'yaml': ['yamllint'],
+\}
+let g:ale_fixers = {
+\}
+" Only run linters named in g:ale_linters
+let g:ale_linters_explicit = 1
+" These 3 ale_lint_on_* are from:
+" https://github.com/dense-analysis/ale?msclkid=69237d68bb8911eca6f5ae06dfeac5ec#5xii-how-can-i-run-linters-only-when-i-save-files
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_enter = 1
+let g:ale_fix_on_save = 1
+" From: https://github.com/dense-analysis/ale?msclkid=69237d68bb8911eca6f5ae06dfeac5ec#5ix-how-can-i-change-the-format-for-echo-messages
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Change visual mode highlight colors
 " From: https://stackoverflow.com/a/45798745
