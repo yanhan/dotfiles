@@ -152,6 +152,7 @@ endif
 """""""""" END OF Mac specific stuff
 
 let g:ale_linters = {
+\ 'json': ['jsonlint'],
 \ 'yaml': ['yamllint'],
 \}
 let g:ale_fixers = {
