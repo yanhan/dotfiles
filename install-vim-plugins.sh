@@ -61,6 +61,10 @@ if [ ! -d ale ]; then
 	git clone git@github.com:dense-analysis/ale.git
 fi
 
+if [ ! -d editorconfig-vim ]; then
+	git clone git@github.com:editorconfig/editorconfig-vim.git
+fi
+
 ### Mac specific
 
 if [ ! -d vim-colors-solarized ]; then
