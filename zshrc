@@ -232,6 +232,8 @@ if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
   fi
 fi
 
+[[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+
 
 ########## Mac specific stuff
 if [ "$(uname)" = "Darwin" ]; then
