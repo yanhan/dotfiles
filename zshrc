@@ -197,7 +197,6 @@ add-zsh-hook precmd precmd_job_status
 # above to show us the number of background jobs.
 if [ -d "${zsh_git_prompt_dir}" ]; then
   source "${zsh_git_prompt_dir}/zshrc.sh"
-  GIT_PROMPT_EXECUTABLE='haskell'
   PS1='${ret_status} %{$fg[cyan]%}%c%{$reset_color%}${JOBSCOUNT} $(git_super_status)'
 else
   # When using the oh-my-zsh git plugin, show background and suspended jobs
