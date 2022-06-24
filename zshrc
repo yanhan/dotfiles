@@ -264,6 +264,7 @@ fi
 
 
 [[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+[[ -f "${HOME}"/.asdf/asdf.sh ]] && source "${HOME}"/.asdf/asdf.sh
 
 
 ### Original code. Some were originally commented out, some not.
