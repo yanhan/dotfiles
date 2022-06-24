@@ -231,8 +231,6 @@ if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
   fi
 fi
 
-[[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
-
 
 ########## Mac specific stuff
 if [ "$(uname)" = "Darwin" ]; then
@@ -263,6 +261,9 @@ if [ "$(uname)" = "Darwin" ]; then
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
 fi
+
+
+[[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 
 
 ### Original code. Some were originally commented out, some not.
