@@ -1,7 +1,6 @@
 #!/bin/bash
 
-VIMCONFIG="${HOME}/.vim"
-PACKAGE_PATH="${VIMCONFIG}/pack/bundle/start"
+PACKAGE_PATH="${HOME}/.local/share/nvim/site/pack/bundle/start"
 if [ ! -d "${PACKAGE_PATH}" ]; then
 	mkdir -pv "${PACKAGE_PATH}"
 fi
