@@ -1,3 +1,9 @@
+alias avsa='aws-vault exec superadmin'
+alias avsap='avsa -- terragrunt plan'
+alias avsa-app='avsa -- terragrunt apply -auto-approve'
+alias avtf='aws-vault exec tf-admin'
+alias avtfp='avtf -- terragrunt plan'
+alias avtf-app='avtf -- terragrunt apply -auto-approve'
 alias c=curl
 alias g=git
 alias ga='g add'
@@ -32,6 +38,7 @@ alias kaf='k apply -f'
 alias kc='k config'
 alias kcc='kc current-context'
 alias kcns="k config view -o jsonpath='{..namespace}'"
+alias kctx=kubectx
 alias kcu='kc use-context'
 alias kd='k delete'
 alias kdes='k describe'
@@ -41,6 +48,7 @@ alias kl='k logs'
 alias klf='k logs -f'
 alias kn='k config set-context $(kcc) --namespace'
 alias knd='k config set-context $(kcc) --namespace default'
+alias kns=kubens
 alias knks='k config set-context $(kcc) --namespace kube-system'
 alias kpf='k port-forward'
 alias krr='k rollout restart'
