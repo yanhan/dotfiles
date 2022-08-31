@@ -1,7 +1,7 @@
 alias avsa='aws-vault exec superadmin'
 alias avsap='avsa -- terragrunt plan'
 alias avsa-app='avsa -- terragrunt apply -auto-approve'
-alias avsa-destroy='avsa -- terragrunt destroy -autoapprove'
+alias avsa-destroy='avsa -- terragrunt destroy -auto-approve'
 alias avtf='aws-vault exec tf-admin'
 alias avtfp='avtf -- terragrunt plan'
 alias avtf-app='avtf -- terragrunt apply -auto-approve'
