@@ -64,6 +64,14 @@ if [ ! -d editorconfig-vim ]; then
 	git clone https://github.com/editorconfig/editorconfig-vim.git
 fi
 
+if [ ! -d coc.nvim ]; then
+  git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
+fi
+
+if [ ! -d vim-airline ]; then
+  git clone https://github.com/vim-airline/vim-airline.git
+fi
+
 ### Mac specific
 
 if [ ! -d vim-colors-solarized ]; then
