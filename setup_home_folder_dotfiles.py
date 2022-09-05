@@ -50,6 +50,10 @@ class ConfigFile:
 
 VALID_CONFIG_FILES = {
   "bashrc": ConfigFile(HOME_FOLDER, ".bashrc"),
+  "coc-settings.json": ConfigFile(
+    os.path.join(HOME_FOLDER, ".config", "nvim"),
+    "coc-settings.json",
+  ),
   "gitconfig": ConfigFile(HOME_FOLDER, ".gitconfig"),
   "init.vim": ConfigFile(
     os.path.join(HOME_FOLDER, ".config", "nvim"),
