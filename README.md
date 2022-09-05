@@ -17,15 +17,16 @@ And run the `setup_home_folder_dotfiles.py` script with one or more of the
 following args:
 
 - bashrc
+- coc-settings.json
 - gitconfig
 - init.vim
 - tmux.conf
 - vimrc
 - zshrc
 
-eg. to setup `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` and `zshrc`, run:
+eg. to setup `coc-settings.json`, `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py gitconfig init.vim tmux.conf vimrc zshrc
+    python setup_home_folder_dotfiles.py coc-settings.json gitconfig init.vim tmux.conf vimrc zshrc
 
 
 ## Installing vim plugins
