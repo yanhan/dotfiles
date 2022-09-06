@@ -42,6 +42,7 @@ fi
 
 if [ ! -d vim-go ]; then
 	git clone https://github.com/fatih/vim-go
+	nvim -c 'GoInstallBinaries' -c q
 fi
 
 if [ ! -d fzf.vim ]; then
