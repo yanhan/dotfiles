@@ -267,8 +267,11 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll(ing?) float windows/popups.
-" NOTE: Unsure what this really does
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+" These are used to scroll floats that contain documentation. Such floats
+" appear to the right of the completion popup menu.
+" We have another set of bindings below that use <C-d> and <C-u> to scroll the
+" pop up menu for the completions themselves; those are probably more useful.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -277,6 +280,11 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" Use <C-d> and <C-u> to scroll the pop up menu for completions.
+" The 'pum' in `coc#pum` stands for pop up menu
+inoremap <silent><expr> <C-d> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
+inoremap <silent><expr> <C-u> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
