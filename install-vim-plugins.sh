@@ -7,9 +7,9 @@ if [ ! -d "${PACKAGE_PATH}" ]; then
 fi
 
 if [ ! -d ~/.fzf ]; then
-	git clone https://github.com/junegunn/fzf.git ~/.fzf
+  git clone https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
 fi
-~/.fzf/install
 
 readonly NEWLY_CLONED='NEWLY CLONED'
 
