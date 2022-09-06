@@ -74,6 +74,13 @@ if [ ! -d vim-airline ]; then
   git clone https://github.com/vim-airline/vim-airline.git
 fi
 
+if [ ! -d jedi-vim ]; then
+  git clone https://github.com/davidhalter/jedi-vim.git
+  pushd jedi-vim
+  git submodule update --init --recursive
+  popd
+fi
+
 ### Mac specific
 
 if [ ! -d vim-colors-solarized ]; then
