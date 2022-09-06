@@ -66,6 +66,8 @@ fi
 
 if [ ! -d coc.nvim ]; then
   git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
+  # Required for generating coc help pages
+  nvim -c 'helptags coc.nvim/doc/ | q'
 fi
 
 if [ ! -d vim-airline ]; then
