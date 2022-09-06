@@ -78,7 +78,7 @@ if [ ! -d jedi-vim ]; then
   git clone https://github.com/davidhalter/jedi-vim.git
   pushd jedi-vim
   git submodule update --init --recursive
-  nvim -c 'CocInstall coc-jedi | q'
+  nvim -c 'CocInstall coc-jedi' -c q
   popd
 fi
 
