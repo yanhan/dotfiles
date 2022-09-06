@@ -1,6 +1,7 @@
 #!/bin/bash
 
-PACKAGE_PATH="${HOME}/.local/share/nvim/site/pack/bundle/start"
+readonly PACK_PATH="${HOME}/.local/share/nvim/site/pack"
+readonly PACKAGE_PATH="${PACK_PATH}/bundle/start"
 if [ ! -d "${PACKAGE_PATH}" ]; then
 	mkdir -pv "${PACKAGE_PATH}"
 fi
@@ -10,11 +11,17 @@ if [ ! -d ~/.fzf ]; then
 fi
 ~/.fzf/install
 
-pushd "${PACKAGE_PATH}"
-
-if [ ! -d molokai ]; then
-	git clone https://github.com/tomasr/molokai.git
+pushd "${PACK_PATH}"
+readonly molokai_dir=molokai/start
+if [ ! -d "${molokai_dir}" ]; then
+  mkdir -pv "${molokai_dir}"
+  pushd "${molokai_dir}"
+  git clone https://github.com/tomasr/molokai.git
+  popd
 fi
+popd
+
+pushd "${PACKAGE_PATH}"
 
 if [ ! -d nerdcommenter ]; then
 	git clone https://github.com/preservim/nerdcommenter.git
