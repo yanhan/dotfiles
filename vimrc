@@ -140,7 +140,9 @@ if has('macunix')
   " Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
   set clipboard=unnamed
 else
-  colorscheme molokai
+  "colorscheme molokai
+  colorscheme darcula
+  set termguicolors
   let g:rehash256 = 1
 
   " Some shortcuts to work with the system clipboard.
@@ -150,6 +152,8 @@ else
   nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 endif
 """""""""" END OF Mac specific stuff
+
+let g:airline_theme='bubblegum'
 
 let g:ale_linters = {
 \ 'json': ['jsonlint'],
