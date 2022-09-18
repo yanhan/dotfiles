@@ -216,6 +216,11 @@ if [ -f "${HOME}"/secrets.sh ]; then
   . "${HOME}"/secrets.sh
 fi
 
+# Shell functions (if aliases are not powerful enough)
+if [ -f "${HOME}"/dotfiles/funcs.sh ]; then
+  . "${HOME}"/dotfiles/funcs.sh
+fi
+
 
 # Tells fzf to use `rg --files` to build the list of files.
 # Using rg --files will respect .gitignore but also let it work outside of git repos.
