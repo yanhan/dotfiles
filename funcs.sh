@@ -45,3 +45,16 @@ vimman() {
     MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist noma number' -\"" man "$@"
   fi
 }
+
+shorturl() {
+  # Cool way to URL encoded on the command line without having to use
+  # external libraries.
+  # Source: https://stackoverflow.com/a/2027690
+  curl \
+    -i \
+    -G \
+    --data-urlencode 'format=simple' \
+    --data-urlencode "url=${1}" \
+    https://is.gd/create.php
+  echo
+}
