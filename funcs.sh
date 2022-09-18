@@ -32,3 +32,16 @@ EOF
   # Open the script and shift cursor to line 6
   v +6 "${1}"
 }
+
+vimman() {
+  local rc
+  set +e
+  command -v nvim >/dev/null 2>&1
+  rc="${?}"
+  set -e
+  if [ "${rc}" -eq 0 ]; then
+    MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist noma number' -\"" man "$@"
+  else
+    MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist noma number' -\"" man "$@"
+  fi
+}
