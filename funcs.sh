@@ -58,3 +58,25 @@ shorturl() {
     https://is.gd/create.php
   echo
 }
+
+serve_pwd() {
+  local optname
+  local address=127.0.0.1
+  local port=8000
+  local opt
+  while getopts "p:s:" opt; do
+    case "${opt}" in
+      p)
+        port=${OPTARG}
+        ;;
+      s)
+        address=${OPTARG}
+        ;;
+      *)
+        printf >&2 "%s: unknown option \"%s\"\n" "${funcstack}" "${opt}"
+        return 1
+        ;;
+    esac
+  done
+  python -m http.server --bind "${address}" "${port}"
+}
