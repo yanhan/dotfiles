@@ -80,3 +80,7 @@ serve_pwd() {
   done
   python -m http.server --bind "${address}" "${port}"
 }
+
+ssh_rm_host() {
+  ssh-keygen -f "${HOME}"/.ssh/known_hosts -R "${1}"
+}
