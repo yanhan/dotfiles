@@ -211,6 +211,7 @@ if [ -f "${HOME}"/dotfiles/aliases ]; then
   source "${HOME}"/dotfiles/aliases
 fi
 
+# Secret environment variables
 if [ -f "${HOME}"/secrets.sh ]; then
   . "${HOME}"/secrets.sh
 fi
