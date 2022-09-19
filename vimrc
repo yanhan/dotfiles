@@ -150,6 +150,8 @@ elseif has('linux')
   nnoremap <leader>x :.w ! xclip -sel clip<CR><CR>dd
   nnoremap <leader>yy :.w ! xclip -sel clip<CR><CR>
   nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
+elseif has('windows')
+  colorscheme molokai
 endif
 """""""""" END OF Mac specific stuff
 
