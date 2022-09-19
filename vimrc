@@ -139,7 +139,7 @@ if has('macunix')
   " We didn't actually need this for using pbcopy in tmux but we'll just add it
   " Source: https://github.com/tmux/tmux/issues/543#issuecomment-248980734
   set clipboard=unnamed
-else
+elseif has('linux')
   "colorscheme molokai
   colorscheme darcula
   set termguicolors
