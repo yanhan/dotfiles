@@ -183,140 +183,140 @@ let g:go_info_mode='gopls'
 let g:go_def_mapping_enabled=0
 
 " ========== coc.nvim ==========
-" From: https://github.com/neoclide/coc.nvim/blob/b797c032802d89c2a01b03429544a632ca2c0c5a/README.md
-" NOTE: We skipped a number of lines in the documentation, mostly because they
-" either do not work / unsure what they are doing / we don't need them for now
-
-" Make user experience better. Longer updatetime (default is 4000ms) leads
-" to noticeable delays
-set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved
-set signcolumn=yes
-
-" Use tab to trigger completion with characters ahead and navigate.
-" NOTE: There is always a completion item selected by default. You may
-" want to enable no select by setting `"suggest.noselect": true` in the
-" COC configuration file.
-" NOTE: Use the vim command ':verbose imap <tab>' to make sure tab is not
-" mapped by other plugins before putting this into your vim config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own coc
-" TODO: What does the second line of the above comment even mean???
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location
-" list
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
-
-" Shortcuts for code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" Highlights symbol and its references when your cursor is resting on it.
-" In other words, when you hover over some text and don't move for some
-" time (a short while), the references to the same text will be
-" highlighted with a less sharp colour than that used during searching
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Used to rename a symbol (such as a struct name, function name)
-nmap <leader>rn <Plug>(coc-rename)
-
-" If I'm right, this has to do with easy highlighting of entire function
-" body when in select mode (for xmap).
-" 'if' selects just the function body (not including the signature,
-" opening and closing braces).
-" 'af' selects the entire function, signature, braces and all
-" NOTE: Requires 'textDocument.documentSymbol' support from the language
-" server
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-" These are used to scroll floats that contain documentation. Such floats
-" appear to the right of the completion popup menu.
-" We have another set of bindings below that use <C-d> and <C-u> to scroll the
-" pop up menu for the completions themselves; those are probably more useful.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use <C-d> and <C-u> to scroll the pop up menu for completions.
-" The 'pum' in `coc#pum` stands for pop up menu
-inoremap <silent><expr> <C-d> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
-inoremap <silent><expr> <C-u> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
-
-" Add `:Format` command to format current buffer
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-" Add `:OR` command for organizing imports of the current buffer.
-" Requires LSP support for the language
-command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" You will need external plugins that provide custom statusline:
-" lightline.vim, vim-airline
-" NOTE: Not sure if this works
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings for COCList
-" Show all diagnostics
-nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent><nowait> <space>e :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent><nowait> <space>c :<C-u>CocList commands<cr>
-" Find symbol in current file
-nnoremap <silent><nowait> <space>o :<C-u>CocList outline<cr>
+"" From: https://github.com/neoclide/coc.nvim/blob/b797c032802d89c2a01b03429544a632ca2c0c5a/README.md
+"" NOTE: We skipped a number of lines in the documentation, mostly because they
+"" either do not work / unsure what they are doing / we don't need them for now
+"
+"" Make user experience better. Longer updatetime (default is 4000ms) leads
+"" to noticeable delays
+"set updatetime=300
+"
+"" Always show the signcolumn, otherwise it would shift the text each time
+"" diagnostics appear/become resolved
+"set signcolumn=yes
+"
+"" Use tab to trigger completion with characters ahead and navigate.
+"" NOTE: There is always a completion item selected by default. You may
+"" want to enable no select by setting `"suggest.noselect": true` in the
+"" COC configuration file.
+"" NOTE: Use the vim command ':verbose imap <tab>' to make sure tab is not
+"" mapped by other plugins before putting this into your vim config
+"inoremap <silent><expr> <TAB>
+"      \ coc#pum#visible() ? coc#pum#next(1) :
+"      \ CheckBackspace() ? "\<Tab>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+"
+"" Make <CR> accept selected completion item or notify coc.nvim to format
+"" <C-g>u breaks current undo, please make your own coc
+"" TODO: What does the second line of the above comment even mean???
+"inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+"function! CheckBackspace() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1] =~# '\s'
+"endfunction
+"
+"" Use <c-space> to trigger completion
+"if has('nvim')
+"  inoremap <silent><expr> <c-space> coc#refresh()
+"else
+"  inoremap <silent><expr> <c-@> coc#refresh
+"endif
+"
+"" Use `[g` and `]g` to navigate diagnostics
+"" Use `:CocDiagnostics` to get all diagnostics of current buffer in location
+"" list
+"nmap <silent>[g <Plug>(coc-diagnostic-prev)
+"nmap <silent>]g <Plug>(coc-diagnostic-next)
+"
+"" Shortcuts for code navigation
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"
+"" use K to show documentation in preview window
+"nnoremap <silent> K :call ShowDocumentation()<CR>
+"
+"function! ShowDocumentation()
+"  if CocAction('hasProvider', 'hover')
+"    call CocActionAsync('doHover')
+"  else
+"    call feedkeys('K', 'in')
+"  endif
+"endfunction
+"
+"" Highlights symbol and its references when your cursor is resting on it.
+"" In other words, when you hover over some text and don't move for some
+"" time (a short while), the references to the same text will be
+"" highlighted with a less sharp colour than that used during searching
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+"
+"" Used to rename a symbol (such as a struct name, function name)
+"nmap <leader>rn <Plug>(coc-rename)
+"
+"" If I'm right, this has to do with easy highlighting of entire function
+"" body when in select mode (for xmap).
+"" 'if' selects just the function body (not including the signature,
+"" opening and closing braces).
+"" 'af' selects the entire function, signature, braces and all
+"" NOTE: Requires 'textDocument.documentSymbol' support from the language
+"" server
+"xmap if <Plug>(coc-funcobj-i)
+"omap if <Plug>(coc-funcobj-i)
+"xmap af <Plug>(coc-funcobj-a)
+"omap af <Plug>(coc-funcobj-a)
+"xmap ic <Plug>(coc-classobj-i)
+"omap ic <Plug>(coc-classobj-i)
+"xmap ac <Plug>(coc-classobj-a)
+"omap ac <Plug>(coc-classobj-a)
+"
+"" Remap <C-f> and <C-b> for scroll float windows/popups.
+"" These are used to scroll floats that contain documentation. Such floats
+"" appear to the right of the completion popup menu.
+"" We have another set of bindings below that use <C-d> and <C-u> to scroll the
+"" pop up menu for the completions themselves; those are probably more useful.
+"if has('nvim-0.4.0') || has('patch-8.2.0750')
+"  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"endif
+"
+"" Use <C-d> and <C-u> to scroll the pop up menu for completions.
+"" The 'pum' in `coc#pum` stands for pop up menu
+"inoremap <silent><expr> <C-d> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
+"inoremap <silent><expr> <C-u> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
+"
+"" Add `:Format` command to format current buffer
+"command! -nargs=0 Format :call CocActionAsync('format')
+"
+"" Add `:Fold` command to fold current buffer
+"command! -nargs=? Fold :call CocAction('fold', <f-args>)
+"
+"" Add `:OR` command for organizing imports of the current buffer.
+"" Requires LSP support for the language
+"command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+"
+"" Add (Neo)Vim's native statusline support.
+"" You will need external plugins that provide custom statusline:
+"" lightline.vim, vim-airline
+"" NOTE: Not sure if this works
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"
+"" Mappings for COCList
+"" Show all diagnostics
+"nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<cr>
+"" Manage extensions
+"nnoremap <silent><nowait> <space>e :<C-u>CocList extensions<cr>
+"" Show commands
+"nnoremap <silent><nowait> <space>c :<C-u>CocList commands<cr>
+"" Find symbol in current file
+"nnoremap <silent><nowait> <space>o :<C-u>CocList outline<cr>
 " =========== End of config for coc.nvim ==========
 
 
