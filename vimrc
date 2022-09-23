@@ -152,6 +152,7 @@ elseif has('linux')
   nnoremap <leader>pp :r ! xclip -sel clip -o<CR>
 elseif has('windows')
   colorscheme molokai
+  set nobomb
 endif
 """""""""" END OF Mac specific stuff
 

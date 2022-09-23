@@ -52,6 +52,21 @@ pip3 install --user neovim-remote
 ```
 
 
+## For Windows
+
+Currently, we only support setting up neovim.
+
+First, run Powershell as administrator and run this:
+```
+& .\bootstrap.ps1
+```
+
+Then, open a normal Powershell and run the following to install vim plugins:
+```
+& .\inst.ps1
+```
+
+
 ## LICENSE
 
 [3-Clause BSD License](/LICENSE), Copyright (c) 2019 Yan Han Pang
