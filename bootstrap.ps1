@@ -18,7 +18,7 @@ function Test-CommandExists {
   }
 }
 
-choco install -y neovim git fzf
+choco install -y neovim git fzf microsoft-windows-terminal
 
 if (-Not (Test-CommandExists "node")) {
   choco install -y nodejs --version 16.17.0

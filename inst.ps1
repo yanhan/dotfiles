@@ -60,7 +60,6 @@ clone-plugin-repo -PluginName vim-obsession -RepoURL https://github.com/tpope/vi
 clone-plugin-repo -PluginName ale -RepoURL https://github.com/dense-analysis/ale.git
 clone-plugin-repo -PluginName editorconfig-vim https://github.com/editorconfig/editorconfig-vim.git
 clone-plugin-repo -PluginName vim-airline -RepoURL https://github.com/vim-airline/vim-airline.git
-# TODO: color is not rendered correctly...
 clone-plugin-repo -PluginName vim-airline-themes -RepoURL https://github.com/vim-airline/vim-airline-themes.git
 install-coc-nvim
 popd

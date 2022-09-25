@@ -56,6 +56,15 @@ pip3 install --user neovim-remote
 
 Currently, we only support setting up neovim.
 
+Download the C++ Runtime framework packages for Desktop bridge here: https://learn.microsoft.com/en-gb/troubleshoot/developer/visualstudio/cpp/libraries/c-runtime-packages-desktop-bridge#how-to-install-and-update-desktop-framework-packages
+
+Specifically, the `Microsoft.VCLibs.x64.14.00.Desktop.appx`. It is required for microsoft-windows-terminal
+
+Then install it using:
+```
+Add-AppxPackage .\Microsoft.VCLibs.x64.14.00.Desktop.appx
+```
+
 First, run Powershell as administrator and run this:
 ```
 & .\bootstrap.ps1
