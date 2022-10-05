@@ -39,6 +39,7 @@ Run:
 Then start vim and run:
 ```
 :GoInstallBinaries
+:CocInstall coc-tsserver
 ```
 
 
