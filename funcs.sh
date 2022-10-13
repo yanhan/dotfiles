@@ -84,3 +84,19 @@ serve_pwd() {
 ssh_rm_host() {
   ssh-keygen -f "${HOME}"/.ssh/known_hosts -R "${1}"
 }
+
+# Inspired by an example in https://github.com/junegunn/fzf/wiki/Examples
+# fuzzy grep open using rg, with line number
+vg() {
+  if [ "${#}" -eq 0 ]; then
+    printf >&2 "Usage: ${0} searchterm\n"
+    printf >&2 "\nUses rg to search for a string in files, use fzf to select which to open\n"
+    return 1
+  fi
+  local file
+  local line
+  read -r file line <<<"$(rg --no-heading -n $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+  if [[ -n "${file}" ]]; then
+    v "${file}" +"${line}"
+  fi
+}
