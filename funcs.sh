@@ -100,3 +100,14 @@ vg() {
     v "${file}" +"${line}"
   fi
 }
+
+# Mostly from the first "fd" example in "Changing directory" section
+# here: https://github.com/junegunn/fzf/wiki/examples
+# Uses fzf to select a directory and cd into it.
+fcd() {
+  local dir
+  dir="$(find ${1:-.} -path '*/\.*' -prune -o -type d -print0 2>/dev/null | fzf --read0 -0 +m)"
+  if [ -n "${dir}" ]; then
+    cd "${dir}"
+  fi
+}
