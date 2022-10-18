@@ -9,6 +9,7 @@ alias avtf-app='avtf -- terragrunt apply -auto-approve'
 alias avtf-apply='avtf -- terragrunt apply -auto-approve'
 alias avtf-destroy='avtf -- terragrunt destroy -auto-approve'
 alias c=curl
+alias fd=fdfind
 alias g=git
 alias ga='g add'
 alias gb='g branch'
