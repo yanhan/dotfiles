@@ -79,6 +79,7 @@ clone_plugin_repo editorconfig-vim https://github.com/editorconfig/editorconfig-
 clone_plugin_repo vim-airline https://github.com/vim-airline/vim-airline.git
 install_coc_nvim
 install_jedi_vim
+clone_plugin_repo darcula https://github.com/doums/darcula
 clone_plugin_repo vim-airline-themes https://github.com/vim-airline/vim-airline-themes
 
 ### Mac specific
