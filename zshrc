@@ -7,6 +7,15 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Lazy load nvm to reduce zsh startup time
+# Source: https://armno.in.th/blog/zsh-startup-time/
+# Please remember to delete the default nvm loading shell scripts that
+# the nvm installation automatically adds to ~/.zshrc
+if [ -d "${HOME}"/.zsh-nvm ]; then
+  source "${HOME}"/.zsh-nvm/zsh-nvm.plugin.zsh
+  export NVM_LAZY_LOAD=1
+fi
+
 declare -r zsh_git_prompt_dir="${HOME}"/code/zsh-git-prompt
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -14,7 +23,7 @@ declare -r zsh_git_prompt_dir="${HOME}"/code/zsh-git-prompt
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 if [ ! -d "${zsh_git_prompt_dir}" ]; then
-  plugins=(git)
+  plugins+=(git)
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -51,10 +60,6 @@ else
 fi
 
 export PATH
-
-# For nvm
-export NVM_DIR="${HOME}"/.nvm
-[ -s "${NVM_DIR}"/nvm.sh ] && source "${NVM_DIR}"/nvm.sh
 
 if [ -x "$(command -v nvim)" ]; then
 	export EDITOR='nvim'
