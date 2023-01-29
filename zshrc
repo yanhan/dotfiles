@@ -278,6 +278,9 @@ if is_mac; then
   # http://stackoverflow.com/questions/10921430/fresh-installation-of-sphinx-quickstart-fails
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
+
+  # zsh autoupdate is too slow
+  DISABLE_AUTO_UPDATE=true
 fi
 
 
