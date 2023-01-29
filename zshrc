@@ -7,6 +7,13 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Determine OS. This will be used in some spots later on
+_os_name="$(uname)"
+
+is_mac() {
+  [ "${_os_name}" = "Darwin" ]
+}
+
 # Lazy load nvm to reduce zsh startup time
 # Source: https://armno.in.th/blog/zsh-startup-time/
 # Please remember to delete the default nvm loading shell scripts that
@@ -42,7 +49,7 @@ TRAPINT() {
 export PYENV_ROOT="${HOME}/.pyenv"
 export GOPATH="${HOME}/go"
 
-if [ "$(uname)" = "Darwin" ]; then
+if is_mac; then
   path+=("$HOME/bin")
   path+=("$HOME/.rvm/bin")
   path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  "${GOPATH}"/bin  ${path})
@@ -244,7 +251,7 @@ fi
 
 
 ########## Mac specific stuff
-if [ "$(uname)" = "Darwin" ]; then
+if is_mac; then
   # Aliases
   alias date=gdate
   alias rstudio='open -a Rstudio'
@@ -277,6 +284,10 @@ fi
 [[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 [[ -f "${HOME}"/.asdf/asdf.sh ]] && source "${HOME}"/.asdf/asdf.sh
 
+
+## Unset temporary variables and functions
+unset _os_name
+unset -f is_mac
 
 ### Original code. Some were originally commented out, some not.
 
