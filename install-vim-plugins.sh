@@ -84,4 +84,5 @@ clone_plugin_repo vim-airline-themes https://github.com/vim-airline/vim-airline-
 
 ### Mac specific
 clone_plugin_repo vim-colors-solarized https://github.com/altercation/vim-colors-solarized.git
+clone_plugin_repo vim-solarized8 https://github.com/lifepillar/vim-solarized8.git
 popd

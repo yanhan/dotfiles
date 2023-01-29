@@ -127,7 +127,12 @@ if has('macunix')
   " https://github.com/altercation/vim-colors-solarized
   syntax enable
   set background=dark
-  colorscheme solarized
+  " set termguicolors for solarized8
+  " From: https://github.com/lifepillar/vim-solarized8/issues/38#issuecomment-381257464
+  set termguicolors
+  " solarized8 is another solarized color scheme
+  " https://vimawesome.com/plugin/solarized-8
+  colorscheme solarized8
 
   " Some shortcuts to work with the system clipboard.
   nnoremap <leader>c :call system('pbcopy', @")<CR>
