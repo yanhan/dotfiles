@@ -29,6 +29,21 @@ eg. to setup `coc-settings.json`, `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` 
     python setup_home_folder_dotfiles.py coc-settings.json gitconfig init.vim tmux.conf vimrc zshrc
 
 
+## Neovim
+
+Run the following:
+```
+if [ ! -d "${HOME}"/.config/nvim ]
+then
+  mkdir -v "${HOME}"/.config/nvim
+fi
+
+cp init.lua "${HOME}"/.config/nvim
+# Intention is to override "${HOME}"/.config/nvim/lua folder with nvim-lua
+cp -R nvim-lua "${HOME}"/.config/nvim/lua
+```
+
+
 ## Installing vim plugins
 
 Run:

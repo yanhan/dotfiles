@@ -63,6 +63,7 @@ install_jedi_vim() {
 }
 
 pushd "${PACK_PATH}"
+clone_plugin_repo darcula https://github.com/doums/darcula
 clone_plugin_repo molokai https://github.com/tomasr/molokai.git
 clone_plugin_repo nerdcommenter https://github.com/preservim/nerdcommenter.git
 clone_plugin_repo nerdtree https://github.com/preservim/nerdtree.git
@@ -77,12 +78,10 @@ clone_plugin_repo vim-obsession https://github.com/tpope/vim-obsession.git
 clone_plugin_repo ale https://github.com/dense-analysis/ale.git
 clone_plugin_repo editorconfig-vim https://github.com/editorconfig/editorconfig-vim.git
 clone_plugin_repo vim-airline https://github.com/vim-airline/vim-airline.git
-install_coc_nvim
-install_jedi_vim
-clone_plugin_repo darcula https://github.com/doums/darcula
 clone_plugin_repo vim-airline-themes https://github.com/vim-airline/vim-airline-themes
+#install_coc_nvim
+#install_jedi_vim
 
 ### Mac specific
-clone_plugin_repo vim-colors-solarized https://github.com/altercation/vim-colors-solarized.git
 clone_plugin_repo vim-solarized8 https://github.com/lifepillar/vim-solarized8.git
 popd
