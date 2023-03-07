@@ -1,9 +1,8 @@
 #!/bin/bash
 
 readonly PACK_PATH="${HOME}/.local/share/nvim/site/pack"
-readonly PACKAGE_PATH="${PACK_PATH}/bundle/start"
-if [ ! -d "${PACKAGE_PATH}" ]; then
-	mkdir -pv "${PACKAGE_PATH}"
+if [ ! -d "${PACK_PATH}" ]; then
+	mkdir -pv "${PACK_PATH}"
 fi
 
 if [ ! -d ~/.fzf ]; then
@@ -63,25 +62,12 @@ install_jedi_vim() {
 }
 
 pushd "${PACK_PATH}"
-clone_plugin_repo darcula https://github.com/doums/darcula
-clone_plugin_repo molokai https://github.com/tomasr/molokai.git
-clone_plugin_repo nerdcommenter https://github.com/preservim/nerdcommenter.git
-clone_plugin_repo nerdtree https://github.com/preservim/nerdtree.git
-clone_plugin_repo vim-textobj-user https://github.com/kana/vim-textobj-user.git
-clone_plugin_repo vim-textobj-entire https://github.com/kana/vim-textobj-entire.git
-clone_plugin_repo vim-surround https://github.com/tpope/vim-surround.git
-clone_plugin_repo vim-closetag https://github.com/alvan/vim-closetag.git
-install_vim_go
-clone_plugin_repo fzf.vim https://github.com/junegunn/fzf.vim
-clone_plugin_repo vim-projectionist https://github.com/tpope/vim-projectionist.git
-clone_plugin_repo vim-obsession https://github.com/tpope/vim-obsession.git
-clone_plugin_repo ale https://github.com/dense-analysis/ale.git
-clone_plugin_repo editorconfig-vim https://github.com/editorconfig/editorconfig-vim.git
-clone_plugin_repo vim-airline https://github.com/vim-airline/vim-airline.git
-clone_plugin_repo vim-airline-themes https://github.com/vim-airline/vim-airline-themes
+clone_plugin_repo packer.nvim https://github.com/wbthomason/packer.nvim --depth 1
+#install_vim_go
+#clone_plugin_repo vim-projectionist https://github.com/tpope/vim-projectionist.git
+#clone_plugin_repo vim-obsession https://github.com/tpope/vim-obsession.git
 #install_coc_nvim
 #install_jedi_vim
-
-### Mac specific
-clone_plugin_repo vim-solarized8 https://github.com/lifepillar/vim-solarized8.git
+#
+#### Mac specific
 popd

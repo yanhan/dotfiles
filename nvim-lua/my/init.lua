@@ -1,3 +1,4 @@
+require("my.packer")
 require("my.set")
 require("my.remap")
 require("my.autocommand")
