@@ -92,6 +92,11 @@ Then, open a normal Powershell and run the following to install vim plugins:
 ```
 
 
+## References
+
+Converting to Lua and use of LSP zero is inspired by: [https://www.youtube.com/watch?v=w7i4amO_zaE](https://www.youtube.com/watch?v=w7i4amO_zaE)
+
+
 ## LICENSE
 
 [3-Clause BSD License](/LICENSE), Copyright (c) 2019 Yan Han Pang
