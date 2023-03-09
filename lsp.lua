@@ -5,6 +5,16 @@ local lsp = require("lsp-zero").preset({
   suggest_lsp_servers = false,
 })
 
+-- Names are from: https://github.com/williamboman/mason-lspconfig.nvim
+-- What the :Mason command provides is inaccurate
+lsp.ensure_installed({
+  "bashls",
+  "dockerls",
+  "gopls",
+  "lua_ls",
+  "pyright",
+})
+
 -- (Optional) Configure lua lanage server for neovim
 lsp.nvim_workspace()
 
