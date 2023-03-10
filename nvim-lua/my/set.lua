@@ -10,6 +10,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.ruler = true
 -- shows row and column number at bottom right corner
@@ -17,6 +18,16 @@ vim.opt.syntax = "on"
 -- for modelines like `# vim: ts=2 sw=2` for say python files
 vim.opt.modeline = true
 vim.opt.smartcase = true
+
+vim.opt.incsearch = true
+
+-- Ensure at least 8 lines before and after cursor when scrolling longer files
+vim.opt.scrolloff = 8
+-- Extra space to the left of line numbers to allow vim to display
+-- some info, such as indicating syntax errors
+vim.opt.signcolumn = "yes"
+-- The entirety of column 80 will be colored slightly differently
+vim.opt.colorcolumn = "80"
 
 vim.opt.hidden = true
 --runtime macros/matchit.vim
@@ -73,4 +84,3 @@ vim.g.go_info_mode = "gopls"
 -- as opposed to letting vim-go handle it
 -- Reference: https://github.com/fatih/vim-go/issues/2923#issuecomment-1053674199
 vim.g.go_def_mapping_enabled = 0
-
