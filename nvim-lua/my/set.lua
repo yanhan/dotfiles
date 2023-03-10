@@ -61,22 +61,6 @@ vim.cmd [[ set rtp+=~/.fzf ]]
 
 vim.g.airline_theme = "bubblegum"
 
-vim.g.ale_linters = {
- ["json"] = {"jsonlint"},
- ["yaml"] = {"yamllint"}
-}
-vim.g.ale_fixers = {}
--- Only run linters named in g:ale_linters
-vim.g.ale_linters_explicit = 1
--- These 3 ale_lint_on_* are from:
--- https://github.com/dense-analysis/ale?msclkid=69237d68bb8911eca6f5ae06dfeac5ec#5xii-how-can-i-run-linters-only-when-i-save-files
-vim.g.ale_lint_on_text_changed = "always"
-vim.g.ale_lint_on_insert_leave = 1
-vim.g.ale_lint_on_enter = 1
-vim.g.ale_fix_on_save = 1
--- From: https://github.com/dense-analysis/ale?msclkid=69237d68bb8911eca6f5ae06dfeac5ec#5ix-how-can-i-change-the-format-for-echo-messages
-vim.g.ale_echo_msg_format = "[%linter%] %s [%severity%]"
-
 -- vim-go for Go LSP
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"

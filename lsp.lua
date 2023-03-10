@@ -40,3 +40,12 @@ lsp.ensure_installed({
 lsp.nvim_workspace()
 
 lsp.setup()
+
+-- Shows "virtual text" on right hand side of LSP diagnostics
+-- From: https://github.com/VonHeikemen/lsp-zero.nvim/blob/07e43a593241bce72c0854398b16f51e0b46486e/advance-usage.md#configure-errors-messages
+--
+-- TODO: Add keymap to toggle this on and off?
+-- Refer to https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.config()
+vim.diagnostic.config({
+  virtual_text = true,
+})

@@ -25,8 +25,6 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "ThePrimeagen/harpoon"
 
-  use "dense-analysis/ale"
-
   use "editorconfig/editorconfig-vim"
 
   use {
@@ -55,4 +53,6 @@ return require("packer").startup(function(use)
       {"rafamadriz/friendly-snippets"}, -- Optional
     }
   }
+
+  use "jose-elias-alvarez/null-ls.nvim"
 end)
