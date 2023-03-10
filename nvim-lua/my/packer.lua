@@ -22,6 +22,8 @@ return require("packer").startup(function(use)
   use "alvan/vim-closetag"
 
   use "junegunn/fzf.vim"
+  use "nvim-lua/plenary.nvim"
+  use "ThePrimeagen/harpoon"
 
   use "dense-analysis/ale"
 
