@@ -28,6 +28,11 @@ return require("packer").startup(function(use)
   use "editorconfig/editorconfig-vim"
 
   use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
+  use {
     "VonHeikemen/lsp-zero.nvim",
     requires = {
       -- LSP Support
