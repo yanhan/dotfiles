@@ -3,6 +3,13 @@ vim.keymap.set("n", "<leader>o", ":set paste!<CR>")
 -- allows you to type input to switch buffers while showing list of buffers
 vim.keymap.set("n", "<leader>l", ":ls<CR>:b<space>")
 
+-- Courtesies of ThePrimeagen, didnt know there's a way to remap keys in
+-- insert mode.
+-- In visual mode vertical edit (C-v visual mode), we normally need to
+-- press the <Esc> key to effect the changes across multiple lines.
+-- This allows us to use <C-c> to achieve the same effect
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
 -- Open tabs using leader key and digits
 -- From: https://vim.fandom.com/wiki/Alternative_tab_navigation
 vim.keymap.set("n", "<leader>1", "1gt")
@@ -55,13 +62,59 @@ vim.keymap.set("x", "*", ":<C-u>lua VSetSearch('/')<CR><CR>")
 vim.keymap.set("x", "#", ":<C-u>lua VSetSearch('?')<CR><CR>")
 -- END OF From Practical Vim (2nd edition), Tip 87: Search for the Current Visual Selection
 
+-- When using 'n' and 'N' for next / previous search term, use zz to
+-- centralize the next result, then zv to open enough folds to make the
+-- line with the search text visible
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- In visual mode, use J to move currently highlighted text down by 1 line.
+-- Works on multiple lines
+-- :m '>+1<CR> does the move and goes back to normal mode
+-- gv goes to visual mode and selects the previously highlighted block
+-- = indents the block and goes back to normal mode
+-- gv selects the block again to allow reuse of the keymap
+-- The downside of this comes when you want to undo the move. It requires
+-- one 'u' for each line moved
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Use zz to centralize the current line after scrolling half page
+-- downwards or upwards
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Use: highlight over some text to replace it with text in the " register.
+-- The deleted text goes into the "_ register (the void register), so the
+-- contents of the " register is not changed.
+-- Without this, the contents of the " register would be changed to that
+-- of the deleted text
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- Use <leader>y followed by some motion to yank text into system clipboard.
+-- We may be able to remove the xclip stuff with this...
+-- TODO: Try these on Mac
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+-- The Y is similar to the above but yanks 1 entire line (including the end of
+-- line character)
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+-- Delete text but send them to the "_ void register so they do not override
+-- contents of the " register
+vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("v", "<leader>d", "\"_d")
+
+-- Make current file executable
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>")
+
 if (vim.fn.has("Linux"))
 then
   -- Some shortcuts to work with the system clipboard.
   vim.keymap.set("n", "<leader>c", ":call system('xclip -sel clip', @\")<CR>")
   vim.keymap.set("n", "<leader>x", ":.w ! xclip -sel clip<CR><CR>dd")
-  vim.keymap.set("n", "<leader>yy", ":.w ! xclip -sel clip<CR><CR>")
-  vim.keymap.set("n", "<leader>pp", ":r ! xclip -sel clip -o<CR>")
+  -- The <leader>yy wont work due to shadowing above
+  --vim.keymap.set("n", "<leader>yy", ":.w ! xclip -sel clip<CR><CR>")
 end
 
 if (vim.fn.has('macunix'))
