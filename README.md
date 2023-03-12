@@ -29,6 +29,8 @@ eg. to setup `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
 
     python setup_home_folder_dotfiles.py gitconfig nvim tmux.conf zshrc
 
+**NOTE:** For `nvim`, most of the contents of the `~/.config/nvim` dir will be removed without backing up the original files. Please exercise caution before running with that argument.
+
 
 ## neovim post config
 
