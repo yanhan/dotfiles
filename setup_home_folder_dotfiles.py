@@ -48,6 +48,31 @@ class ConfigFile:
     global TEMPLATE_FOLDER
     return os.path.join(TEMPLATE_FOLDER, self._get_non_dotted_filename())
 
+# TODO: Quite a fast hack. Is there a way to better organize this?
+class NeoVimConfig:
+  def __init__(self):
+    pass
+
+  def install_files(self):
+    src_dir = "nvim-lua"
+    config_dir = os.path.join(HOME_FOLDER, ".config", "nvim")
+    init_lua_path = os.path.join(config_dir, "init.lua")
+    lua_dir = os.path.join(config_dir, "lua")
+    after_dir = os.path.join(config_dir, "after")
+
+    # Cleanup existing files and folders
+    if os.path.exists(init_lua_path):
+      os.remove(init_lua_path)
+    if os.path.exists(lua_dir):
+      shutil.rmtree(lua_dir)
+    if os.path.exists(after_dir):
+      shutil.rmtree(after_dir)
+
+    shutil.copy(os.path.join(src_dir, "init.lua"), init_lua_path)
+    os.mkdir(lua_dir)
+    shutil.copytree(os.path.join(src_dir, "my"), os.path.join(lua_dir, "my"))
+    shutil.copytree(os.path.join(src_dir, "after"), after_dir)
+
 VALID_CONFIG_FILES = {
   "bashrc": ConfigFile(HOME_FOLDER, ".bashrc"),
   "coc-settings.json": ConfigFile(
@@ -59,6 +84,7 @@ VALID_CONFIG_FILES = {
     os.path.join(HOME_FOLDER, ".config", "nvim"),
     "init.vim",
   ),
+  "nvim": NeoVimConfig(),
   "tmux.conf": ConfigFile(HOME_FOLDER, ".tmux.conf"),
   "vimrc": ConfigFile(HOME_FOLDER, ".vimrc"),
   "zshrc": ConfigFile(HOME_FOLDER, ".zshrc"),
@@ -78,23 +104,28 @@ def _get_file_sha256sum(filename: str) -> Optional[str]:
 def _setup_config_file(filename: str) -> None:
   global HOME_FOLDER, VALID_CONFIG_FILES
   file_info = VALID_CONFIG_FILES[filename]
-  template_path = file_info.get_template_path()
-  template_sha256sum = _get_file_sha256sum(template_path)
-  dest_path = file_info.get_path()
-  dest_sha256sum = _get_file_sha256sum(dest_path)
-  if dest_sha256sum is not None and dest_sha256sum != template_sha256sum:
-    # backup original config file
-    backup_path = file_info.get_backup_path()
-    print("Backing up {} to {}".format(dest_path, backup_path))
-    shutil.move(dest_path, backup_path)
-    print("Copying template {} to {}".format(filename, dest_path))
-    shutil.copyfile(template_path, dest_path)
-  elif dest_sha256sum is None:
-    dest_dir = file_info.directory
-    if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
-      os.makedirs(dest_dir, mode=0o0750)
-    print("Copying template {} to {}".format(filename, dest_path))
-    shutil.copyfile(template_path, dest_path)
+
+  # TODO: Is there a less hackish way to do this?
+  if type(file_info) is NeoVimConfig:
+    file_info.install_files()
+  elif type(file_info) is ConfigFile:
+    template_path = file_info.get_template_path()
+    template_sha256sum = _get_file_sha256sum(template_path)
+    dest_path = file_info.get_path()
+    dest_sha256sum = _get_file_sha256sum(dest_path)
+    if dest_sha256sum is not None and dest_sha256sum != template_sha256sum:
+      # backup original config file
+      backup_path = file_info.get_backup_path()
+      print("Backing up {} to {}".format(dest_path, backup_path))
+      shutil.move(dest_path, backup_path)
+      print("Copying template {} to {}".format(filename, dest_path))
+      shutil.copyfile(template_path, dest_path)
+    elif dest_sha256sum is None:
+      dest_dir = file_info.directory
+      if dest_dir != HOME_FOLDER and not os.path.exists(dest_dir):
+        os.makedirs(dest_dir, mode=0o0750)
+      print("Copying template {} to {}".format(filename, dest_path))
+      shutil.copyfile(template_path, dest_path)
 
 def _main(filenames: List[str]) -> None:
   valid_filenames = [f for f in filenames if f in VALID_CONFIG_FILES]

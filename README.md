@@ -20,31 +20,32 @@ following args:
 - coc-settings.json
 - gitconfig
 - init.vim
+- nvim
 - tmux.conf
 - vimrc
 - zshrc
 
-eg. to setup `coc-settings.json`, `gitconfig`, `init.vim`, `tmux.conf`, `vimrc` and `zshrc`, run:
+eg. to setup `coc-settings.json`, `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py coc-settings.json gitconfig init.vim tmux.conf vimrc zshrc
+    python setup_home_folder_dotfiles.py coc-settings.json gitconfig nvim tmux.conf zshrc
 
 
-## Neovim
+## neovim post config
 
-Run the following:
+Start neovim and run:
 ```
-if [ ! -d "${HOME}"/.config/nvim ]
-then
-  mkdir -v "${HOME}"/.config/nvim
-fi
-
-cp init.lua "${HOME}"/.config/nvim
-# Intention is to override "${HOME}"/.config/nvim/lua folder with nvim-lua
-cp -R nvim-lua "${HOME}"/.config/nvim/lua
+:PackerSync
+:Mason
 ```
 
+`:PackerSync` installs the neovim plugins we want, using the Packer plugin manager.
 
-## Installing vim plugins
+`:Mason` installs the LSP servers we specified in [nvim-lua/after/plugin/lsp.lua](nvim-lua/after/plugin/lsp.lua)
+
+
+## Installing vim plugins (dont do this if using neovim)
+
+**NOTE:** These are instructions for classic vim, not neovim.
 
 Run:
 ```
