@@ -25,9 +25,9 @@ following args:
 - vimrc
 - zshrc
 
-eg. to setup `coc-settings.json`, `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
+eg. to setup `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
 
-    python setup_home_folder_dotfiles.py coc-settings.json gitconfig nvim tmux.conf zshrc
+    python setup_home_folder_dotfiles.py gitconfig nvim tmux.conf zshrc
 
 
 ## neovim post config
