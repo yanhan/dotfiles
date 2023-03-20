@@ -70,9 +70,9 @@ fi
 export PATH
 
 if [ -x "$(command -v nvim)" ]; then
-	export EDITOR='nvim'
+  export EDITOR='nvim'
 else
-	export EDITOR=vim
+  export EDITOR=vim
 fi
 
 # Ensure colors in vim work properly when using tmux and not using tmux
