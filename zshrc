@@ -61,9 +61,7 @@ if is_mac; then
 else
   path+=(
     /opt/texbin
-    "$HOME/bin"
     "${HOME}/google-cloud-sdk/bin"
-    "/usr/local/go/bin"
     "${GOPATH}/bin"
     "${HOME}/.cargo/bin"
     # For tfenv, the Terraform version manager
@@ -75,7 +73,12 @@ else
     "${HOME}/code/istio-1.17.1/bin"
     "${HOME}/.fzf/bin"
   )
-  path=("${PYENV_ROOT}/bin"  ${path})
+  path=(
+    "${PYENV_ROOT}/bin"
+    "$HOME/bin"
+    "/usr/local/go/bin"
+    ${path}
+  )
 fi
 
 export PATH
