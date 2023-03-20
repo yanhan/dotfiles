@@ -62,6 +62,7 @@ else
   # For tgenv, the Terragrunt version manager
   # https://github.com/cunymatthieu/tgenv
   path+=("${HOME}/.tgenv/bin")
+  path+=("${HOME}/code/istio-1.17.1/bin")
   # ${HOME}/.local/bin is for Haskell Stack
   path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  ${path})
 fi
