@@ -50,19 +50,30 @@ export PYENV_ROOT="${HOME}/.pyenv"
 export GOPATH="${HOME}/go"
 
 if is_mac; then
-  path+=("$HOME/bin")
-  path+=("$HOME/.rvm/bin")
-  path=("${HOME}/.local/bin"  "${PYENV_ROOT}/bin"  "${GOPATH}"/bin  ${path})
-  path+=("${HOME}/library/Python/2.7/bin")
+  path+=(
+    "$HOME/bin"
+    "$HOME/.rvm/bin"
+    "${HOME}/.local/bin"
+    "${PYENV_ROOT}/bin"
+    "${GOPATH}"/bin
+  )
+  path=("${path}"  "${HOME}/library/Python/2.7/bin")
 else
-  path+=(/opt/texbin  "$HOME/bin"  "${HOME}/google-cloud-sdk/bin"  "/usr/local/go/bin"  "${GOPATH}/bin"  "${HOME}/.cargo/bin")
-  # For tfenv, the Terraform version manager
-  # https://github.com/tfutils/tfenv
-  path+=("${HOME}/.tfenv/bin")
-  # For tgenv, the Terragrunt version manager
-  # https://github.com/cunymatthieu/tgenv
-  path+=("${HOME}/.tgenv/bin")
-  path+=("${HOME}/code/istio-1.17.1/bin")
+  path+=(
+    /opt/texbin
+    "$HOME/bin"
+    "${HOME}/google-cloud-sdk/bin"
+    "/usr/local/go/bin"
+    "${GOPATH}/bin"
+    "${HOME}/.cargo/bin"
+    # For tfenv, the Terraform version manager
+    # https://github.com/tfutils/tfenv
+    "${HOME}/.tfenv/bin"
+    # For tgenv, the Terragrunt version manager
+    # https://github.com/cunymatthieu/tgenv
+    "${HOME}/.tgenv/bin"
+    "${HOME}/code/istio-1.17.1/bin"
+  )
   path=("${PYENV_ROOT}/bin"  ${path})
 fi
 
