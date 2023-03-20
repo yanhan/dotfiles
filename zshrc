@@ -73,6 +73,7 @@ else
     # https://github.com/cunymatthieu/tgenv
     "${HOME}/.tgenv/bin"
     "${HOME}/code/istio-1.17.1/bin"
+    "${HOME}/.fzf/bin"
   )
   path=("${PYENV_ROOT}/bin"  ${path})
 fi
