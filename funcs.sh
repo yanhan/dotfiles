@@ -110,3 +110,20 @@ fcd() {
     cd "${dir}"
   fi
 }
+
+# Export some environment variables when we are learning Istio
+istio_env_vars() {
+  local host_ip
+  local ingress_port
+  local secure_ingress_port
+  local tcp_ingress_port
+  host_ip="$(kg -n istio-system po -l istio=ingressgateway -o jsonpath='{.items[0].status.hostIP}')"
+  ingress_port="$(kg -n istio-system svc istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name == "http2")].nodePort}')"
+  secure_ingress_port="$(kg -n istio-system svc istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name == "https")].nodePort}')"
+  tcp_ingress_port="$(kg -n istio-system svc istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name == "tcp")].nodePort}')"
+  export INGRESS_HOST=${host_ip}
+  export INGRESS_PORT=${ingress_port}
+  export SECURE_INGRESS_PORT=${secure_ingress_port}
+  export TCP_INGRESS_PORT=${tcp_ingress_port}
+  export GATEWAY_URL="${INGRESS_HOST}:${INGRESS_PORT}"
+}
