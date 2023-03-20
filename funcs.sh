@@ -7,7 +7,7 @@ b64d() {
 
 new_bash_script() {
   if [ "${#}" -ne 1 ]; then
-    printf >&2 "Usage: %s <filename>\n" "${funcstack}"
+    printf >&2 "Usage: %s <filename>\n" "${0}"
     return 1
   fi
 
@@ -28,7 +28,7 @@ main() {
 main "\$@"
 EOF
 
-  chmod "${1}"
+  chmod u+x "${1}"
   # Open the script and shift cursor to line 6
   v +6 "${1}"
 }
@@ -60,7 +60,6 @@ shorturl() {
 }
 
 serve_pwd() {
-  local optname
   local address=127.0.0.1
   local port=8000
   local opt
@@ -73,7 +72,7 @@ serve_pwd() {
         address=${OPTARG}
         ;;
       *)
-        printf >&2 "%s: unknown option \"%s\"\n" "${funcstack}" "${opt}"
+        printf >&2 "%s: unknown option \"%s\"\n" "${0}" "${opt}"
         return 1
         ;;
     esac
@@ -89,13 +88,13 @@ ssh_rm_host() {
 # fuzzy grep open using rg, with line number
 vg() {
   if [ "${#}" -eq 0 ]; then
-    printf >&2 "Usage: ${0} searchterm\n"
+    printf >&2 "Usage: %s searchterm\n"  "${0}"
     printf >&2 "\nUses rg to search for a string in files, use fzf to select which to open\n"
     return 1
   fi
   local file
   local line
-  read -r file line <<<"$(rg --no-heading -n $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+  read -r file line <<<"$(rg --no-heading -n "$@" | fzf -0 -1 | awk -F: '{print $1, $2}')"
   if [[ -n "${file}" ]]; then
     v "${file}" +"${line}"
   fi
@@ -106,7 +105,7 @@ vg() {
 # Uses fzf to select a directory and cd into it.
 fcd() {
   local dir
-  dir="$(find ${1:-.} -path '*/\.*' -prune -o -type d -print0 2>/dev/null | fzf --read0 -0 +m)"
+  dir="$(find "${1:-.}" -path '*/\.*' -prune -o -type d -print0 2>/dev/null | fzf --read0 -0 +m)"
   if [ -n "${dir}" ]; then
     cd "${dir}"
   fi
