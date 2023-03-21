@@ -32,6 +32,19 @@ eg. to setup `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
 **NOTE:** For `nvim`, most of the contents of the `~/.config/nvim` dir will be removed without backing up the original files. Please exercise caution before running with that argument.
 
 
+## neovim setup
+
+Clone packer.nvim:
+```
+git clone https://github.com/wbthomason/packer.nvim "${HOME}"/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+For Mac users, if you see an error about missing xcrun, run:
+```
+xcode-select --install
+```
+
+
 ## neovim post config
 
 Start neovim and run:
