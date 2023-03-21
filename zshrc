@@ -190,11 +190,13 @@ if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
   RPS1='$(vi_mode_prompt_info)'
 fi
 
-# for pyenv
-eval "$(pyenv init -)"
+if command -v pyenv >/dev/null 2>&1; then
+  # for pyenv
+  eval "$(pyenv init -)"
 
-# for pyenv-virtualenv
-eval "$(pyenv virtualenv-init -)"
+  # for pyenv-virtualenv
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # This uses the `JOBSCOUNT` global variable to show the number of running and
 # suspended jobs in the current shell.
