@@ -89,6 +89,13 @@ else
   export EDITOR=vim
 fi
 
+# Dont spawn nvim within nvim from :terminal
+# Mainly used during git commit
+# Source: https://github.com/mhinz/neovim-remote/tree/1004d41696a3de12f0911b1949327c3dbe4a62ab
+if command -v nvr >/dev/null 2>&1; then
+  export GIT_EDITOR="nvr -cc split --remote-wait"
+fi
+
 # Ensure colors in vim work properly when using tmux and not using tmux
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
