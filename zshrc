@@ -57,7 +57,7 @@ if is_mac; then
     "${PYENV_ROOT}/bin"
     "${GOPATH}"/bin
   )
-  path=("${path}"  "${HOME}/library/Python/2.7/bin")
+  path=(${path}  "${HOME}/library/Python/2.7/bin")
 else
   path+=(
     /opt/texbin
