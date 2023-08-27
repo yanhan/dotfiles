@@ -316,6 +316,9 @@ fi
 unset _os_name
 unset -f is_mac
 
+
+source "${HOME}"/.sdkman/bin/sdkman-init.sh
+
 ### Original code. Some were originally commented out, some not.
 
 # Path to your oh-my-zsh installation.
