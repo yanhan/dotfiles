@@ -47,6 +47,13 @@ xcode-select --install
 
 ## neovim post config
 
+NOTE: Each time you update the contents of the nvim-lua directory, you have to run the following command:
+```
+python setup_home_folder_dotfiles nvim
+```
+
+so that the changes will be reflected.
+
 Start neovim and run:
 ```
 :PackerSync
@@ -56,6 +63,13 @@ Start neovim and run:
 `:PackerSync` installs the neovim plugins we want, using the Packer plugin manager.
 
 `:Mason` installs the LSP servers we specified in [nvim-lua/after/plugin/lsp.lua](nvim-lua/after/plugin/lsp.lua)
+
+Sometimes, there will be a need to run:
+```
+:TSUpdate
+```
+
+if you are facing errors similar to: https://stackoverflow.com/q/70373650
 
 
 ## Installing vim plugins (dont do this if using neovim)
