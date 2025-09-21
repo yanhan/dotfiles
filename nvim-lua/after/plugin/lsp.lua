@@ -34,7 +34,6 @@ lsp.ensure_installed({
   "gopls",
   "lua_ls",
   "pyright",
-  "tsserver",
 })
 
 -- (Optional) Configure lua lanage server for neovim
