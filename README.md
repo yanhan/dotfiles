@@ -72,22 +72,6 @@ Sometimes, there will be a need to run:
 if you are facing errors similar to: https://stackoverflow.com/q/70373650
 
 
-## Installing vim plugins (dont do this if using neovim)
-
-**NOTE:** These are instructions for classic vim, not neovim.
-
-Run:
-```
-./install-vim-plugins
-```
-
-Then start vim and run:
-```
-:GoInstallBinaries
-:CocInstall coc-tsserver
-```
-
-
 ## Install nvr
 
 Run the [provision-ubuntu-ansible](https://github.com/yanhan/provision-ubuntu-ansible) repo to install the libffi6 library.
