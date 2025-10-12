@@ -58,6 +58,7 @@ class NeoVimConfig:
     config_dir = os.path.join(HOME_FOLDER, ".config", "nvim")
     init_lua_path = os.path.join(config_dir, "init.lua")
     lua_dir = os.path.join(config_dir, "lua")
+    lsp_dir = os.path.join(config_dir, "lsp")
     after_dir = os.path.join(config_dir, "after")
 
     # Cleanup existing files and folders
@@ -67,10 +68,13 @@ class NeoVimConfig:
       shutil.rmtree(lua_dir)
     if os.path.exists(after_dir):
       shutil.rmtree(after_dir)
+    if os.path.exists(lsp_dir):
+      shutil.rmtree(lsp_dir)
 
     shutil.copy(os.path.join(src_dir, "init.lua"), init_lua_path)
     os.mkdir(lua_dir)
     shutil.copytree(os.path.join(src_dir, "my"), os.path.join(lua_dir, "my"))
+    shutil.copytree(os.path.join(src_dir, "lsp"), lsp_dir)
     shutil.copytree(os.path.join(src_dir, "after"), after_dir)
 
 VALID_CONFIG_FILES = {
