@@ -86,7 +86,6 @@ VALID_CONFIG_FILES = {
   ),
   "nvim": NeoVimConfig(),
   "tmux.conf": ConfigFile(HOME_FOLDER, ".tmux.conf"),
-  "vimrc": ConfigFile(HOME_FOLDER, ".vimrc"),
   "zshrc": ConfigFile(HOME_FOLDER, ".zshrc"),
 }
 

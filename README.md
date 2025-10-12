@@ -22,7 +22,6 @@ following args:
 - init.vim
 - nvim
 - tmux.conf
-- vimrc
 - zshrc
 
 eg. to setup `gitconfig`, `nvim`, `tmux.conf`, and `zshrc`, run:
