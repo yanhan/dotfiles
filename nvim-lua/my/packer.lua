@@ -1,4 +1,4 @@
--- This file can only be loaded by calling `lua require("plugins")` from your init.vim
+-- This file can only be loaded by calling `require("my.packer")` from nvim-lua/my/init.lua
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]

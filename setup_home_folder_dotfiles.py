@@ -80,10 +80,6 @@ VALID_CONFIG_FILES = {
     "coc-settings.json",
   ),
   "gitconfig": ConfigFile(HOME_FOLDER, ".gitconfig"),
-  "init.vim": ConfigFile(
-    os.path.join(HOME_FOLDER, ".config", "nvim"),
-    "init.vim",
-  ),
   "nvim": NeoVimConfig(),
   "tmux.conf": ConfigFile(HOME_FOLDER, ".tmux.conf"),
   "zshrc": ConfigFile(HOME_FOLDER, ".zshrc"),
