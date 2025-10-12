@@ -264,6 +264,10 @@ fi
 # This is from the "Modern Vim" book by Drew Neil, page 29
 export FZF_DEFAULT_COMMAND='rg --files'
 
+if command -v fzf >/dev/null 2>&1 && fzf --zsh >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
+
 # Prevent direct nesting of neovim instances
 # From Modern Vim by Drew Neil
 if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
