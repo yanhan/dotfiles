@@ -76,6 +76,7 @@ else
   path=(
     "${PYENV_ROOT}/bin"
     "$HOME/bin"
+    "${HOME}/.asdf/shims"
     "/usr/local/go/bin"
     ${path}
   )
