@@ -71,6 +71,8 @@ class NeoVimConfig:
     if os.path.exists(lsp_dir):
       shutil.rmtree(lsp_dir)
 
+    os.makedirs(config_dir, exist_ok=True)
+
     shutil.copy(os.path.join(src_dir, "init.lua"), init_lua_path)
     os.mkdir(lua_dir)
     shutil.copytree(os.path.join(src_dir, "my"), os.path.join(lua_dir, "my"))
