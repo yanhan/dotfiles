@@ -1,7 +1,7 @@
 -- From: https://github.com/nvim-treesitter/nvim-treesitter/tree/fc1ca10bfbdee17e29374d0d1bac8ea030539dc3#modules
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "go", "lua", "vim", "help", "query" },
+  ensure_installed = { "c", "go", "lua", "vim", "query" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
